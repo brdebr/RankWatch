@@ -2,7 +2,7 @@
   <v-app dark>
     <TheToolbar />
     <TheDrawer
-      :items="drawer.items"
+      :items="$store.state.layout.drawer.items"
     />
     <v-content class="grey lighten-3">
       <v-container fill-height>
@@ -22,13 +22,6 @@ export default {
     TheToolbar,
     TheDrawer,
     TheFooter
-  },
-  data() {
-    return {
-      drawer: {
-        items: this.$store.state.layout.drawer.items
-      }
-    }
   }
 }
 </script>

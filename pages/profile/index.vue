@@ -12,7 +12,7 @@
     >
       <v-card>
         <v-card-title class="headline">
-          This is the About Page
+          This is the Profile Page
         </v-card-title>
         <v-card-text>
           <p>This is the about page</p>

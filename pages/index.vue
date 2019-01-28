@@ -11,7 +11,7 @@
       class="mb-auto"
     >
       <v-card>
-        <v-card-title class="headline" id="ddss">
+        <v-card-title class="headline">
           This is the main page.
         </v-card-title>
         <v-card-text>
@@ -34,9 +34,7 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-  }
+  components: {}
 }
 </script>
