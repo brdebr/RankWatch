@@ -3,8 +3,12 @@ export const state = () => ({
     active: true,
     mini: true,
     items: [
-      { icon: 'apps', title: 'Dashboard', to: '/' },
-      { icon: 'info', title: 'About', to: '/about' }
+      { title: 'Dashboard', icon: 'apps', to: '/' },
+      { title: 'Profile', icon: 'account_box', to: '/profile' },
+      { title: 'Seasons', icon: 'event_note', to: '/seasons' },
+      { title: 'Maps', icon: 'map', to: '/maps' },
+      { title: 'Heroes', icon: 'whatshot', to: '/heroes' },
+      { title: 'About', icon: 'info', to: '/about' }
     ]
   }
 })
