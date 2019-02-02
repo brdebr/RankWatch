@@ -3,8 +3,8 @@
     :mini-variant="$store.state.layout.drawer.mini"
     :value="$store.state.layout.drawer.active"
     clipped
-    class="blue-grey darken-3"
-    width="275"
+    class="bg-br"
+    width="240"
     fixed
     app
     @input="val => $store.commit('layout/setDrawer',val)"
@@ -66,6 +66,11 @@ export default {
 </script>
 
 <style scoped>
+.bg-br {
+  background-color: #394b6e;
+  border-right: 2px solid #ff6d00;
+}
+
 .flip-enter {
   transform: rotateY(90deg);
 }

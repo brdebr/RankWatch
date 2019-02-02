@@ -1,8 +1,6 @@
 <template>
   <v-layout
     column
-    justify-center
-    align-center
   >
     <v-flex
       xs12
@@ -11,10 +9,13 @@
       class="mb-auto"
     >
       <v-card>
-        <v-card-title class="headline">
-          This is the main page.
+        <v-card-title class="elevation-1 secondary">
+          <span class="display-1 ml-1">
+            RankWatch
+          </span>
         </v-card-title>
         <v-card-text>
+          <p>Web App to manage a history of Overwatch ranked games</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error assumenda, ducimus saepe vel in minus, possimus quibusdam accusantium sit iure minima temporibus facilis cupiditate id nobis. Officia, cumque quidem!</p>
         </v-card-text>
         <v-card-actions>
