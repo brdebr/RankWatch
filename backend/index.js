@@ -40,13 +40,15 @@ const { mongoose} = require ('./database/');
 
 
 // Routes
-app.use('/',(req, res) =>{
+/* app.use('/',(req, res) =>{
     console.log("Request to route: \"/\"");
     res.json({
         message:'Hello World',
         status:'OK :D',
     });
-});
+}); */
+
+app.use('/api', require('./routes/match.routes'));
 
 // - Server up
 app.listen(port, () => {
