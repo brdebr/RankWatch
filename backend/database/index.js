@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI = 'mongodb://localhost/rankwatch';
+const URI = 'mongodb://localhost/rankwatch-dev';
 
 mongoose.connect(URI,{ useNewUrlParser: true })
     .then(
@@ -23,5 +23,7 @@ mongoose.connect(URI,{ useNewUrlParser: true })
     .catch(
         err => console.log(err)
     );
+
+mongoose.set('useCreateIndex', true);
 
 module.exports = mongoose; 
