@@ -35,6 +35,9 @@ app.use((req, res, next) => {
     next()
   })
 
+// MongoDB
+const { mongoose} = require ('./database/');
+
 
 // Routes
 app.use('/',(req, res) =>{
