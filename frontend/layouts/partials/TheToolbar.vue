@@ -21,7 +21,7 @@
         class="d-flex align-center"
         style="cursor:pointer"
       >
-        <logo class="ml-2 mr-3"/>
+        <logo class="ml-2 mr-3" />
         <span class="mr-4">
           {{ title }}
         </span>
@@ -37,8 +37,8 @@
   </v-toolbar>
 </template>
 <script>
-const envMode = process.env.NODE_ENV
 import Logo from '~/components/Logo'
+const envMode = process.env.NODE_ENV
 
 export default {
   components: {
