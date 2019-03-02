@@ -2,7 +2,18 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const MapSchema = new Schema({
-    name: { 
+    name: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+});
+
+const TagSchema = new Schema({
+    text: {
         type: String,
         required: true
     },
@@ -13,7 +24,7 @@ const MapSchema = new Schema({
 });
 
 const HeroSchema = new Schema({
-    name: { 
+    name: {
         type: String,
         required: true
     },
@@ -24,7 +35,7 @@ const HeroSchema = new Schema({
 });
 
 const PlayerSchema = new Schema({
-    identification: { 
+    name: {
         type: String,
         required: false
     },
@@ -43,16 +54,12 @@ const PlayerSchema = new Schema({
 });
 
 const RoundSchema = new Schema({
-    order: { 
+    order: {
         type: Number,
         required: true
     },
-    pointsBlue: {
-        type: String,
-        required: true
-    },
-    pointsRed: {
-        type: String,
+    points: {
+        type: [String],
         required: true
     },
     side: {
@@ -96,7 +103,7 @@ const MatchSchema = new Schema({
         required: true
     },
     tags: {
-        type: [String],
+        type: [TagSchema],
         required: false
     },
     map: {
