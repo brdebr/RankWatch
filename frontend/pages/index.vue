@@ -13,6 +13,8 @@
           <span class="display-1 ml-1">
             RankWatch
           </span>
+          <v-spacer/>
+          <logo :flat="false" :height="64"/>
         </v-card-title>
         <v-card-text>
           <p>Web App to manage a history of Overwatch ranked games</p>
@@ -35,7 +37,11 @@
 </template>
 
 <script>
+import Logo from '~/components/Logo'
+
 export default {
-  components: {}
+  components: {
+    Logo
+  },
 }
 </script>

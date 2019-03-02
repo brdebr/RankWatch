@@ -18,9 +18,10 @@
         exact
         to="/"
         tag="div"
-        class="align-center"
+        class="d-flex align-center"
         style="cursor:pointer"
       >
+        <logo class="ml-2 mr-3"/>
         <span class="mr-4">
           {{ title }}
         </span>
@@ -37,9 +38,12 @@
 </template>
 <script>
 const envMode = process.env.NODE_ENV
+import Logo from '~/components/Logo'
 
 export default {
-  components: {},
+  components: {
+    Logo
+  },
   data() {
     return {
       envMode,
