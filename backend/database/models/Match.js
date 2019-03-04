@@ -96,7 +96,7 @@ const MatchSchema = new Schema({
         required: false
     },
     map: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true
     },
     rounds: {

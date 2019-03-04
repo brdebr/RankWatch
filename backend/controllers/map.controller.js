@@ -1,4 +1,5 @@
 const Map = require('../database/models/Map');
+const File = require('../database/models/File');
 const MapController = {};
 
 MapController.getMaps = async (req, res) => {
@@ -116,6 +117,30 @@ MapController.deleteMap = async (req, res) => {
             message:'Something didn\'t work :/',
             error
         });
+    }
+}
+
+MapController.uploadImg = async (req, res) => {
+    const { id } = req.params;
+    try {
+        let file = new File(req.file);
+        file.relatedModel = 'Map';
+        file.relatedId = id;
+
+        let resultFile = await file.save();
+
+        let map = await Map.findById(id);
+        let resultMap = await map.updateOne({imgUrl: req.file.filename});
+        console.log({
+            message: `Image for map ${map.name} updated ! :D`,
+            mapStatus: resultMap
+        });
+
+        res.set('Content-Type', 'text/plain')
+        res.send(req.file.filename)
+    } catch (error) {
+        console.log(error);
+
     }
 }
 

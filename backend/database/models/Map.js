@@ -10,11 +10,11 @@ const MapSchema = new Schema({
         type: String,
         required: true
     },
-    imgURL: {
+    imgUrl: {
         type: String,
         required: false
     },
-    typeImgURL: {
+    typeImgUrl: {
         type: String,
         required: false
     },
