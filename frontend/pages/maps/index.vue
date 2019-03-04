@@ -14,7 +14,9 @@
           Maps
         </v-card-title>
         <v-card-text>
-          <maps-list :maps="$store.state.maps.list"></maps-list>
+          <maps-list :maps="$store.state.maps.list" />
+          <hr>
+          <map-form />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -23,12 +25,14 @@
 
 <script>
 import MapsList from '~/components/Map/MapList'
+import MapForm from '~/components/Map/MapForm'
 export default {
   components: {
-    MapsList
+    MapsList,
+    MapForm
   },
   async fetch({ store, params }) {
-      await store.dispatch('maps/fetchMaps');
-  },
+    await store.dispatch('maps/fetchMaps')
+  }
 }
 </script>

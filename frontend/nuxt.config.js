@@ -32,12 +32,20 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/style/app.styl',
+    'filepond/dist/filepond.min.css',
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify', '@/plugins/animejs.client', '@/plugins/moment'],
+  plugins: [
+    '@/plugins/vuetify',
+    '@/plugins/animejs.client',
+    '@/plugins/moment'
+  ],
 
   /*
   ** Nuxt.js modules
