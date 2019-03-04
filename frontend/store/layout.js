@@ -5,6 +5,7 @@ export const state = () => ({
     items: [
       { title: 'Dashboard', icon: 'apps', to: '/' },
       { title: 'Profile', icon: 'account_box', to: '/profile' },
+      { title: 'Matches', icon: 'list', to: '/matches' },
       { title: 'Seasons', icon: 'event_note', to: '/seasons' },
       { title: 'Maps', icon: 'map', to: '/maps' },
       { title: 'Heroes', icon: 'whatshot', to: '/heroes' },

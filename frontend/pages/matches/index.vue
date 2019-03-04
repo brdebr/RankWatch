@@ -1,0 +1,59 @@
+<template>
+  <v-layout
+    column
+    justify-center
+  >
+    <v-flex
+      xs12
+      sm8
+      md6
+      class="mb-auto"
+    >
+      <v-card>
+        <v-card-title class="headline">
+          Matches
+        </v-card-title>
+        <v-card-text>
+          <match-list :matches="$store.state.matches.list"></match-list>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
+
+<script>
+import MatchList from '~/components/Match/MatchList'
+export default {
+  components: {
+    MatchList
+  },
+  async fetch({ store, params }) {
+      await store.dispatch('matches/fetchMatches');
+  },
+  transition: {
+    css: false,
+    enter(el, done){
+      var tl = this.$anime.timeline()
+
+      tl
+      // Move page down
+      .add({
+        targets: el,
+        translateY: ['-100%', '0%'],
+        opacity: [0, 1],
+        easing: 'easeOutElastic(2, 1.8)',
+      })
+      // Move rows left to right with delay
+      .add({
+        targets: el.querySelectorAll('.match-list tbody tr'),
+        translateX: ['-100%', '0%'],
+        easing: 'easeOutElastic(2, 1.5)',
+        duration: 750,
+        delay: this.$anime.stagger(250, {start: 300}),
+      })
+
+      tl.finished.then(done)
+    }
+  }
+}
+</script>
