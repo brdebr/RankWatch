@@ -49,6 +49,7 @@ const { mongoose} = require ('./database/');
 }); */
 
 app.use('/api', require('./routes/match.routes'));
+app.use('/api', require('./routes/map.routes'));
 
 // - Server up
 app.listen(port, () => {

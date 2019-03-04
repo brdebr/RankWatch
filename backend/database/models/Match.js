@@ -1,17 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-const MapSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true
-    },
-});
-
 const TagSchema = new Schema({
     text: {
         type: String,
@@ -107,7 +96,7 @@ const MatchSchema = new Schema({
         required: false
     },
     map: {
-        type: MapSchema,
+        type: String,
         required: true
     },
     rounds: {

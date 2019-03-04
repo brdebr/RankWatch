@@ -24,7 +24,7 @@
             {{ props.item.season }}
           </td>
           <td class="text-xs-center">
-            {{ props.item.map.name }}
+            {{ props.item.map }}
           </td>
         </template>
     </v-data-table>
