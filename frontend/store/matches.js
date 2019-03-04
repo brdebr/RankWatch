@@ -14,10 +14,17 @@ export const state = () => ({
 
   export const actions = {
       async fetchMatches({ commit }) {
-        let response = await this.$axios.$get('http://localhost:4000/api/matches')
-        commit('setResponse', response)
-        if(response.data.lenght){
-            commit('setList', response.data.matches)
+        
+        try {
+          let response = await this.$axios.$get('http://localhost:4000/api/matches')
+          commit('setResponse', response)
+          if(response.data.lenght){
+              commit('setList', response.data.matches)
+          }
+        } catch (error) {
+          // TODO: check if state.list is empty
+          commit('setResponse', error)
+          commit('setList', [])
         }
       }
   }
