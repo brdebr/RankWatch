@@ -19,6 +19,7 @@
           v-for="item in items"
           :key="item.to"
           :to="item.to"
+          :title="item.title"
           router
           exact
         >
