@@ -14,10 +14,6 @@ const MapSchema = new Schema({
         type: String,
         required: false
     },
-    typeImgUrl: {
-        type: String,
-        required: false
-    },
 });
 
 module.exports = mongoose.model('Map', MapSchema);

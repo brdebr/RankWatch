@@ -121,19 +121,15 @@ MapController.deleteMap = async (req, res) => {
 }
 
 MapController.uploadImg = async (req, res) => {
-    const { id } = req.params;
     try {
         let file = new File(req.file);
         file.relatedModel = 'Map';
-        file.relatedId = id;
 
         let resultFile = await file.save();
 
-        let map = await Map.findById(id);
-        let resultMap = await map.updateOne({imgUrl: req.file.filename});
         console.log({
-            message: `Image for map ${map.name} updated ! :D`,
-            mapStatus: resultMap
+            message: `Image for map uploaded ! :D`,
+            resultFile: resultFile
         });
 
         res.set('Content-Type', 'text/plain')
@@ -141,6 +137,28 @@ MapController.uploadImg = async (req, res) => {
     } catch (error) {
         console.log(error);
 
+    }
+}
+
+MapController.getUploadImg = async (req, res) => {
+    const { id, imageId } = req.params;
+    try {
+        const file = await File.findOne({
+            filename: imageId
+        })
+
+        res.json({
+            message:"Here's the image file object you requested :D !",
+            data: {
+                file
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({
+            message:'Something didn\'t work :/',
+            error
+        });
     }
 }
 

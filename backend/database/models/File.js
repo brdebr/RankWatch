@@ -8,7 +8,7 @@ const FileSchema = new Schema({
     },
     relatedId: {
         type: Schema.Types.ObjectId,
-        required: true
+        required: false,
     },
     confirmed: {
         type: Boolean,
