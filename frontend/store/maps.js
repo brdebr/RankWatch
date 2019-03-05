@@ -1,6 +1,24 @@
 export const state = () => ({
   list: [],
-  response: {}
+  response: {},
+  types: [
+    {
+      name: 'Assault',
+      imgUrl: '/svgs/map_assault.svg'
+    },
+    {
+      name: 'Control',
+      imgUrl: '/svgs/map_control.svg'
+    },
+    {
+      name: 'Escort',
+      imgUrl: '/svgs/map_escort.svg'
+    },
+    {
+      name: 'Hybrid',
+      imgUrl: '/svgs/map_hybrid.svg'
+    }
+  ]
 })
 
 export const mutations = {
