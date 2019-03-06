@@ -1,83 +1,158 @@
 <template>
-  <div>
-    <h4>
-      Create Map
-    </h4>
-    <form action="http://localhost/api/maps/" method="post">
-      <input type="text" name="name">
-      <input type="text" name="type">
-    </form>
-    <file-pond
-      ref="pond"
-      name="mapImg"
-      label-idle="< Drop your pics here or click me >"
-      :allow-replace="true"
-      :drop-on-page="true"
-      :allow-revert="true"
-      :allow-multiple="false"  
-      accepted-file-types="image/jpeg, image/png"
-      :server="fpConfig.server"
-      :files="mapImage"
-      @processfile="onUpload"
-    />
-  </div>
+  <v-card class="teal darken-4 mt-2 rb-5">
+     <v-card-title class="secondary elevation-1">
+      <v-icon
+        large
+        left
+      >
+        mdi-twitter
+      </v-icon>
+      <span class="title font-weight-light">Create map</span>
+      <v-spacer/>
+          <v-btn 
+            icon
+            color="success darken-3"
+            :loading="form.loading"
+            @click="createMap">
+            <v-icon>add</v-icon>
+            </v-btn>
+    </v-card-title>
+    <v-card-text class="pt-0 card-form">
+      <v-form v-model="form.valid" ref="form">
+        <v-container class="pb-0">
+          <v-layout>
+            <v-flex
+              xs9
+            >
+              <v-text-field
+                v-model="map.name"
+                :rules="form.nameRules"
+                color="#ecde1a"
+                :counter="128"
+                label="Name"
+                required
+              />
+            </v-flex>
+            <v-flex
+              xs3
+            >
+              <v-select
+                v-model="selectedType"
+                @change="setTypeName"
+                color="#ecde1a"
+                :items="$store.state.maps.types"
+                label="Type"
+              >
+                <template v-slot:item="{ item, index }">
+                  <div class="map-select-item" :title="item.name">
+                    <span class="body-1">
+                      {{ item.name }}
+                    </span>
+                    <img :src="item.imgUrl" :alt="item.name + ' image'">
+                  </div>
+                </template>
+    
+                <template v-slot:selection="{ item, index }">
+                  <div class="map-select-item selected" :title="item.name">
+                    <span class="body-1">
+                      {{ item.name }}
+                    </span>
+                    <img :src="item.imgUrl" :alt="item.name + ' image'">
+                  </div>
+                </template>
+              </v-select>
+            </v-flex>
+          </v-layout>
+          <v-layout>
+            <v-flex class="pb-0">
+              <map-image-form @upload="imgUploaded" />
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-form>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
-// Import Vue FilePond
-import vueFilePond from 'vue-filepond'
-
-// Import FilePond styles
-// import 'filepond/dist/filepond.min.css';
-
-// Import FilePond plugins
-// Please note that you need to install these plugins separately
-
-// Import image preview plugin styles
-// import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
-
-// Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-
-// Create component
-const FilePond = vueFilePond(
-  FilePondPluginFileValidateType,
-  FilePondPluginImagePreview
-)
+import MapImageForm from '~/components/Map/MapImageForm'
 
 export default {
   components: {
-    FilePond
+    MapImageForm
   },
   data() {
     return {
-      mapImage: [],
-      uploaded: false,
-      fpConfig: {
-        server: {
-          process: {
-            url:
-              'http://localhost:4000/api/map/5c7d6dc61872b68244730e90/uploadImg',
-            method: 'POST',
-            withCredentials: false,
-            headers: {},
-            timeout: 7000,
-            onload: null,
-            onerror: null,
-            ondata: null
-          }
-        }
-      }
+      form: {
+        valid: false,
+        nameRules: [
+          v => !!v || 'Name is required',
+          v => v.length >= 3 || 'Name have at least 3 characters'
+        ],
+        loading: false
+      },
+      map: {
+        name: '',
+        type: '',
+        imgId: ''
+      },
+      selectedType: {},
+      imageFile: {}
     }
   },
   methods: {
-    onUpload() {
-      this.uploaded = true
+    async imgUploaded(fileId) {
+      let response = await this.$axios.$get(
+        'http://localhost:4000/api/map/uploadImg/' + fileId
+      )
+      // TODO Handle error
+      this.imageFile = response.data.file
+      this.map.imgId = response.data.file._id
+
+      if (this.map.name.length <= 0) {
+        this.map.name = response.data.file.originalname.replace(/\..{3,4}$/, '')
+      }
+    },
+    async createMap(){
+      this.form.loading = true
+      let response = await this.$axios.$post('http://localhost:4000/api/map/',this.map)
+      if (response) {
+        this.form.loading = false
+        this.$store.dispatch('maps/fetchMaps')
+      }
+    },
+    setTypeName(type){
+      this.map.type = type.name
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+.map-select-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  img {
+    height: 24px;
+    width: 24px;
+  }
+  &.selected {
+    padding-left: 3px;
+    padding-right: 0px;
+    padding-top: 2px;
+    img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+.card-form{
+  .error--text{//#ecde1a
+    color: #ef6c00 !important;
+    caret-color: #ef6c00 !important;
+  }
+}
 </style>
