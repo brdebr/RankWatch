@@ -1,5 +1,7 @@
 const Map = require('../database/models/Map');
 const File = require('../database/models/File');
+var fs = require('fs');
+var path = require('path');
 const MapController = {};
 
 MapController.getMaps = async (req, res) => {
@@ -27,8 +29,31 @@ MapController.createMap = async (req, res) => {
     // Create a Map, show it on console and save it
     // Route : POST /api/Map
     const newMap = new Map(req.body);
+
     try {
         const createdMap = await newMap.save();
+        const file = await File.findById(createdMap.imgId);
+        // TODO get route of base and relative to it
+        let newPath = path.normalize(__dirname+'../../../uploads/maps/'+file.originalname);
+        
+        fs.rename(file.path, newPath, async (err) => {
+            if(err){
+                console.log(err);
+            } 
+            else{
+                file.path = newPath
+                file.confirmed = true;
+                let resultFile = await file.save();
+                createdMap.imageFilename = resultFile.originalname;
+                let resultMap = await createdMap.save();
+                console.log({
+                    message: 'Successfully moved',
+                    resultFile,
+                    resultMap
+                });
+            } 
+        })
+
         res.json({
             message:'Map created successfully :D !',
             data: {
@@ -141,7 +166,7 @@ MapController.uploadImg = async (req, res) => {
 }
 
 MapController.getUploadImg = async (req, res) => {
-    const { id, imageId } = req.params;
+    const { imageId } = req.params;
     try {
         const file = await File.findOne({
             filename: imageId

@@ -14,6 +14,14 @@ const MapSchema = new Schema({
         type: String,
         required: false
     },
+    imgId: {
+        type: Schema.Types.ObjectId,
+        required: false
+    },
+    imageFilename:{
+        type: String,
+        required: false
+    }
 });
 
 module.exports = mongoose.model('Map', MapSchema);
