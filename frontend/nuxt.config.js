@@ -34,6 +34,7 @@ module.exports = {
   */
   css: [
     '~/assets/style/app.styl',
+    '~/assets/style/custom-utils.scss',
     'filepond/dist/filepond.min.css',
     'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   ],
