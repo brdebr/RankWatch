@@ -1,18 +1,20 @@
 <template>
   <div>
-    <file-pond
-      ref="pond"
-      name="mapImg"
-      label-idle="< Drag&Drop the image or click here >"
-      :allow-replace="true"
-      :drop-on-page="true"
-      :allow-revert="false"
-      :allow-multiple="false"  
-      accepted-file-types="image/jpeg, image/png"
-      :server="fpConfig.server"
-      :files="mapImage"
-      @processfile="onUpload"
-    />
+    <no-ssr>
+      <file-pond
+        ref="pond"
+        name="mapImg"
+        label-idle="< Drag&Drop the image or click here >"
+        :allow-replace="true"
+        :drop-on-page="true"
+        :allow-revert="false"
+        :allow-multiple="false"  
+        accepted-file-types="image/jpeg, image/png"
+        :server="fpConfig.server"
+        :files="mapImage"
+        @processfile="onUpload"
+      />
+    </no-ssr>
   </div>
 </template>
 

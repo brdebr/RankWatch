@@ -15,7 +15,6 @@
         </v-card-title>
         <v-card-text>
           <maps-list :maps="$store.state.maps.list" />
-          <hr>
           <map-form />
         </v-card-text>
       </v-card>
