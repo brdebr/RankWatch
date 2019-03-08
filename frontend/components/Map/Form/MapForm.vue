@@ -1,24 +1,27 @@
 <template>
-  <v-card class="teal darken-4 mt-2 rb-5">
-     <v-card-title class="secondary elevation-1">
+  <v-card class="teal darken-4 rb-3">
+    <v-card-title class="secondary elevation-1">
       <v-icon
         large
         left
       >
         mdi-twitter
       </v-icon>
-      <span class="title font-weight-light">Create map</span>
-      <v-spacer/>
-          <v-btn 
-            icon
-            color="success darken-3"
-            :loading="form.loading"
-            @click="createMap">
-            <v-icon>add</v-icon>
-            </v-btn>
+      <span class="title font-weight-light">
+        Create map
+      </span>
+      <v-spacer />
+      <v-btn 
+        icon
+        color="success darken-3"
+        :loading="form.loading"
+        @click="createMap"
+      >
+        <v-icon>add</v-icon>
+      </v-btn>
     </v-card-title>
     <v-card-text class="pt-0 card-form">
-      <v-form v-model="form.valid" ref="form">
+      <v-form ref="form" v-model="form.valid">
         <v-container class="pb-0">
           <v-layout>
             <v-flex
@@ -38,10 +41,10 @@
             >
               <v-select
                 v-model="selectedType"
-                @change="setTypeName"
                 color="#ecde1a"
                 :items="$store.state.maps.types"
                 label="Type"
+                @change="setTypeName"
               >
                 <template v-slot:item="{ item, index }">
                   <div class="map-select-item" :title="item.name">
@@ -75,7 +78,7 @@
 </template>
 
 <script>
-import MapImageForm from '~/components/Map/MapImageForm'
+import MapImageForm from '~/components/Map/Form/MapImageForm'
 
 export default {
   components: {
@@ -102,7 +105,7 @@ export default {
   },
   methods: {
     async imgUploaded(fileId) {
-      let response = await this.$axios.$get(
+      const response = await this.$axios.$get(
         'http://localhost:4000/api/map/uploadImg/' + fileId
       )
       // TODO Handle error
@@ -113,15 +116,20 @@ export default {
         this.map.name = response.data.file.originalname.replace(/\..{3,4}$/, '')
       }
     },
-    async createMap(){
-      this.form.loading = true
-      let response = await this.$axios.$post('http://localhost:4000/api/map/',this.map)
+    async createMap() {
+      this.form.loading = true;
+      this.$emit('mapCreated');
+      const response = await this.$axios.$post(
+        'http://localhost:4000/api/map/',
+        this.map
+      )
       if (response) {
         this.form.loading = false
+        this.$emit('mapCreated') // TODO send map from the response
         this.$store.dispatch('maps/fetchMaps')
       }
     },
-    setTypeName(type){
+    setTypeName(type) {
       this.map.type = type.name
     }
   }
@@ -149,8 +157,9 @@ export default {
     }
   }
 }
-.card-form{
-  .error--text{//#ecde1a
+.card-form {
+  .error--text {
+    //#ecde1a
     color: #ef6c00 !important;
     caret-color: #ef6c00 !important;
   }

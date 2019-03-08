@@ -9,13 +9,12 @@
       md6
       class="mb-auto"
     >
-      <v-card>
-        <v-card-title class="headline">
+      <v-card class="blue-grey darken-3">
+        <v-card-title class="headline pl-4">
           Maps
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="pa-0">
           <maps-list :maps="$store.state.maps.list" />
-          <map-form />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -24,11 +23,9 @@
 
 <script>
 import MapsList from '~/components/Map/MapList'
-import MapForm from '~/components/Map/MapForm'
 export default {
   components: {
     MapsList,
-    MapForm
   },
   async fetch({ store, params }) {
     await store.dispatch('maps/fetchMaps')

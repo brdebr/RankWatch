@@ -1,5 +1,5 @@
 <template>
-  <v-card class="blue-grey darken-3">
+
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <map-card-list-item
@@ -10,7 +10,7 @@
         <new-map-item />
       </v-layout>
     </v-container>
-  </v-card>
+
 </template>
 
 <script>

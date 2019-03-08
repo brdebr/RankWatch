@@ -30,16 +30,20 @@
 
         <v-card-title class="overflow-hidden px-4">
           <v-layout class="map-actions">
-            <v-btn
-              block
-              outline
-              class="ma-0"
-              color="orange accent-1"
-            >
-              <v-icon>
-                add
-              </v-icon>
-            </v-btn>
+            <v-dialog v-model="formVisible" class="w-100" max-width="800px" lazy >
+              <v-btn
+                block
+                outline
+                class="ma-0"
+                slot="activator"
+                color="orange accent-1"
+              >
+                <v-icon>
+                  add
+                </v-icon>
+              </v-btn>
+              <map-form @mapCreated="closeForm"/>
+            </v-dialog>
           </v-layout>
         </v-card-title>
       </v-card>
@@ -48,7 +52,22 @@
 </template>
 
 <script>
-export default {}
+import MapForm from '~/components/Map/Form/MapForm'
+export default {
+  components: {
+    MapForm
+  },
+  methods: {
+    closeForm() {
+      this.formVisible = false;
+    },
+  },
+  data() {
+    return {
+      formVisible: false
+    }
+  },
+}
 </script>
 
 <style>
@@ -61,5 +80,8 @@ export default {}
 }
 .not-selectable{
   user-select: none;
+}
+.w-100{
+  width: 100%;
 }
 </style>
