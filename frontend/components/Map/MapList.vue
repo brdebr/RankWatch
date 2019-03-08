@@ -1,22 +1,27 @@
 <template>
-  <div>
-    <h4>
-      List of maps
-    </h4>
-    <div v-for="map in maps" :key="map.id" style="display:flex">
-      <div>
-        {{ map.name }}
-      </div>
-      &nbsp;|&nbsp;
-      <div>
-        {{ map.type }}
-      </div>
-    </div>
-  </div>
+  <v-card class="blue-grey darken-3">
+    <v-container fluid grid-list-lg>
+      <v-layout row wrap>
+        <map-card-list-item
+          v-for="map in maps"
+          :key="map.id"
+          :map="map"
+        />
+        <new-map-item />
+      </v-layout>
+    </v-container>
+  </v-card>
 </template>
 
 <script>
+import NewMapItem from '~/components/Map/List/NewMapItem'
+import MapCardListItem from '~/components/Map/List/MapCardListItem'
+
 export default {
+  components: {
+    NewMapItem,
+    MapCardListItem
+  },
   props: {
     maps: {
       type: Array,
@@ -25,6 +30,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
