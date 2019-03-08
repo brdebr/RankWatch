@@ -7,19 +7,19 @@
           :key="map.id"
           :map="map"
         />
-        <new-map-item />
+        <map-new-item />
       </v-layout>
     </v-container>
 
 </template>
 
 <script>
-import NewMapItem from '~/components/Map/List/NewMapItem'
+import MapNewItem from '~/components/Map/List/MapNewItem'
 import MapCardListItem from '~/components/Map/List/MapCardListItem'
 
 export default {
   components: {
-    NewMapItem,
+    MapNewItem,
     MapCardListItem
   },
   props: {

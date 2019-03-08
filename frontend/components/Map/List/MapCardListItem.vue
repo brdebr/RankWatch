@@ -7,7 +7,7 @@
     grow
   >
     <v-hover>
-      <v-card slot-scope="{ hover }" class="rb-3" hover>
+      <v-card slot-scope="{ hover }" class="rb-3">
         <v-img
           class="filter-darken"
           height="200px"
