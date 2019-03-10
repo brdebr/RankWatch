@@ -26,6 +26,7 @@
     "nuxt": "^2.4.5",
     "sass-loader": "^7.1.0",
     "vue-filepond": "^5.0.0",
+    "vue-particles": "github:brdebr/vue-particles",
     "vuetify": "^1.4.5",
     "vuetify-loader": "^1.0.8"
   },

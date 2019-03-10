@@ -45,7 +45,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/animejs.client',
-    '@/plugins/moment'
+    '@/plugins/moment',
+    '@/plugins/particles.client'
   ],
 
   /*
