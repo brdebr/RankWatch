@@ -1,16 +1,14 @@
 <template>
-
-    <v-container fluid grid-list-lg>
-      <v-layout row wrap>
-        <map-card-list-item
-          v-for="map in maps"
-          :key="map.id"
-          :map="map"
-        />
-        <map-new-item />
-      </v-layout>
-    </v-container>
-
+  <v-container fluid grid-list-lg>
+    <v-layout row wrap>
+      <map-card-list-item
+        v-for="map in maps"
+        :key="map.id"
+        :map="map"
+      />
+      <map-new-item />
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

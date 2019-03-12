@@ -117,8 +117,8 @@ export default {
       }
     },
     async createMap() {
-      this.form.loading = true;
-      this.$emit('mapCreated');
+      this.form.loading = true
+      this.$emit('mapCreated')
       const response = await this.$axios.$post(
         'http://localhost:4000/api/map/',
         this.map

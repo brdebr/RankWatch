@@ -1,11 +1,13 @@
 <template>
   <v-footer
     :app="!$vuetify.breakpoint.xsOnly"
+    inset
     height="auto"
-    class="grey darken-2 px-3"
+    class="grey darken-2"
   >
     <v-layout
       row
+      class="px-3"
     >
       <v-flex
         align-self-center

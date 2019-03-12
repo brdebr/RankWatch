@@ -49,9 +49,9 @@
       "out_mode": "out",
       "bounce": false,
       "attract": {
-        "enable": true,
-        "rotateX": 1000,
-        "rotateY": 1800
+        "enable": false,
+        "rotateX": 0,
+        "rotateY": 0
       }
     }
   },
@@ -70,10 +70,10 @@
     },
     "modes": {
       "bubble": {
-        "distance": 250,
-        "size": 7,
+        "distance": 200,
+        "size": 5,
         "duration": 1.5,
-        "opacity": 0.7,
+        "opacity": 0.8,
         "speed": 3
       }
     }

@@ -1,12 +1,11 @@
 <template>
   <v-layout
-    column
     justify-center
   >
     <v-flex
       xs12
-      sm8
-      md6
+      sm11
+      md10
       class="mb-auto"
     >
       <v-card>

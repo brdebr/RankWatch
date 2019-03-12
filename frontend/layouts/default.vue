@@ -11,7 +11,7 @@
           particles-json="/particles-conf.json"
         />
       </no-ssr>
-      <v-container fill-height>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
