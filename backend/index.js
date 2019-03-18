@@ -1,6 +1,7 @@
 // Modules
 const express = require('express');
 const bodyParser = require('body-parser')
+const passport = require('passport')
 const morgan = require('morgan');
 
 // Express
@@ -35,6 +36,10 @@ app.use((req, res, next) => {
     next()
   })
 
+// PASSPORT
+app.use(passport.initialize())
+require('./configs/passport')(passport)
+
 // MongoDB
 const { mongoose} = require ('./database/');
 
@@ -48,6 +53,8 @@ const { mongoose} = require ('./database/');
     });
 }); */
 
+app.use('/api', require('./routes/auth.routes'));
+app.use('/api', require('./routes/user.routes'));
 app.use('/api', require('./routes/match.routes'));
 app.use('/api', require('./routes/map.routes'));
 
