@@ -96,8 +96,16 @@ export default {
 
 .filter-darken {
   .v-image__image {
-    filter: brightness(0.3);
-    transition: filter 0.4s;
+    &::after {
+      position: relative;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s;
+      transform-origin: bottom;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
   }
   .map-item-name {
     color: #fff;
@@ -109,7 +117,10 @@ export default {
   }
   &:hover {
     .v-image__image {
-      filter: brightness(1);
+      &::after {
+        transform-origin: bottom;
+        transform: scaleY(0);
+      }
     }
     .map-item-name {
       color: transparent;
