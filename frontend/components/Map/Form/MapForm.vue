@@ -105,9 +105,7 @@ export default {
   },
   methods: {
     async imgUploaded(fileId) {
-      const response = await this.$axios.$get(
-        'http://localhost:4000/api/map/uploadImg/' + fileId
-      )
+      const response = await this.$axios.$get('/api/map/uploadImg/' + fileId)
       // TODO Handle error
       this.imageFile = response.data.file
       this.map.imgId = response.data.file._id
@@ -119,10 +117,7 @@ export default {
     async createMap() {
       this.form.loading = true
       this.$emit('mapCreated')
-      const response = await this.$axios.$post(
-        'http://localhost:4000/api/map/',
-        this.map
-      )
+      const response = await this.$axios.$post('/api/map/', this.map)
       if (response) {
         this.form.loading = false
         this.$emit('mapCreated') // TODO send map from the response

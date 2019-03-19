@@ -15,9 +15,7 @@ export const mutations = {
 export const actions = {
   async fetchMatches({ commit }) {
     try {
-      const response = await this.$axios.$get(
-        'http://localhost:4000/api/matches'
-      )
+      const response = await this.$axios.$get('/api/matches')
       commit('setResponse', response)
       if (response.data.lenght) {
         commit('setList', response.data.matches)
