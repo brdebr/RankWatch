@@ -12,17 +12,6 @@ const TagSchema = new Schema({
     },
 });
 
-const HeroSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true
-    },
-});
-
 const PlayerSchema = new Schema({
     name: {
         type: String,
@@ -37,7 +26,7 @@ const PlayerSchema = new Schema({
         required: false
     },
     heroes: {
-        type: [HeroSchema],
+        type: [Schema.Types.ObjectId],
         required: false
     }
 });

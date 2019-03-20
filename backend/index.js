@@ -57,9 +57,11 @@ app.use('/api', require('./routes/auth.routes'));
 app.use('/api', require('./routes/user.routes'));
 app.use('/api', require('./routes/match.routes'));
 app.use('/api', require('./routes/map.routes'));
+app.use('/api', require('./routes/hero.routes'));
 
 // Serve static map images
 app.use('/uploads/maps', express.static(__dirname + '/../uploads/maps'))
+app.use('/uploads/heroes', express.static(__dirname + '/../uploads/heroes'))
 
 // - Server up
 app.listen(port, () => {
