@@ -9,12 +9,30 @@
       class="mb-auto"
     >
       <v-card>
-        <v-card-title class="headline">
-          This is the Profile Page
+        <v-card-title class="headline elevation-2">
+          <span>
+            Profile
+          </span>
+          <v-spacer/>
+          <span>_id: {{ this.$auth.user.user.id }}</span>
         </v-card-title>
         <v-card-text>
-          <p>This is the about page</p>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, facere. Minima nostrum libero reiciendis culpa eaque cum iure totam officiis, iste corporis, voluptates animi laboriosam fugit repellat explicabo debitis. Nihil!</p>
+          <p class="headline ">
+            <span>
+              Username: 
+            </span>
+            <span>
+              {{ this.$auth.user.user.username }}
+            </span>
+          </p>
+          <p class="headline ">
+            <span>
+              Email: 
+            </span>
+            <span>
+              {{ this.$auth.user.user.email }}
+            </span>
+          </p>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -23,6 +41,7 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
+  middleware: 'auth'
 }
 </script>

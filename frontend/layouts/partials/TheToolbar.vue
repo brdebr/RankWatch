@@ -34,20 +34,32 @@
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer />
+    <login-form v-if="!$auth.user" />
+    <v-btn v-else @click="logOut">
+      Logout
+    </v-btn>
   </v-toolbar>
 </template>
 <script>
 import Logo from '~/components/Logo'
+import LoginForm from '~/components/Auth/LoginForm'
+
 const envMode = process.env.NODE_ENV
 
 export default {
   components: {
-    Logo
+    Logo,
+    LoginForm
   },
   data() {
     return {
       envMode,
       title: 'RankWatch'
+    }
+  },
+  methods: {
+    logOut() {
+      this.$auth.logout()
     }
   }
 }

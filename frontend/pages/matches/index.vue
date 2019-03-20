@@ -26,6 +26,7 @@ export default {
   components: {
     MatchList
   },
+  middleware: 'auth',
   async fetch({ store, params }) {
     await store.dispatch('matches/fetchMatches')
   },

@@ -8,7 +8,7 @@
       md10
       class="mb-auto"
     >
-      <v-card class="overflow-hidden">
+      <v-card>
         <v-card-title class="elevation-1 secondary">
           <span class="display-1 ml-1">
             RankWatch
@@ -20,17 +20,9 @@
           <p>Web App to manage a history of Overwatch ranked games</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error assumenda, ducimus saepe vel in minus, possimus quibusdam accusantium sit iure minima temporibus facilis cupiditate id nobis. Officia, cumque quidem!</p>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions class="overflow-hidden">
           <v-spacer />
-          <v-btn
-            color="primary"
-            outline
-            nuxt
-            to="/about"
-            class="action"
-          >
-            About
-          </v-btn>
+          <sign-up-form class="action" />
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -39,10 +31,12 @@
 
 <script>
 import Logo from '~/components/Logo'
+import SignUpForm from '~/components/Auth/SignUpForm'
 
 export default {
   components: {
-    Logo
+    Logo,
+    SignUpForm
   },
   transition: {
     css: false,
