@@ -14,6 +14,7 @@
     "precommit": "npm run lintfix"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.5.3",
     "@nuxtjs/axios": "^5.3.6",
     "animejs": "^3.0.1",
     "cross-env": "^5.2.0",

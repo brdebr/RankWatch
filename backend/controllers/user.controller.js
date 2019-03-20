@@ -19,4 +19,17 @@ UserController.getUsers = async (req, res) => {
     }
 }
 
+UserController.getCurrent = async (req, res) => {
+    // Return all Matchs
+    // Route : GET /api/Matchs
+    try {
+        res.json({
+            message: "Here is your current token :D !",
+            user: req.user
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = UserController; 

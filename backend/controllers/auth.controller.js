@@ -46,6 +46,11 @@ exports.login = async (req, res, next) => {
             email: email
         })
 
+        if(!user){
+            res.json({
+                message: 'Auth error :/',
+            })
+        }
         let matchPass = await bcrypt.compare(password, user.password)
 
         if (user && matchPass) {
