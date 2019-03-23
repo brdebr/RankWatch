@@ -4,7 +4,7 @@
     clipped-right
     fixed
     height="64"
-    class="blue-grey darken-4"
+    class="blue-grey darken-4 bottom-bd"
     app
   >
     <v-toolbar-side-icon
@@ -64,3 +64,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.bottom-bd{
+  .v-toolbar__content{
+    border-bottom: 3px solid #225aad;
+  }
+}
+</style>
