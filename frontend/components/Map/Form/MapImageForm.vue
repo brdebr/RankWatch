@@ -44,7 +44,7 @@ export default {
       fpConfig: {
         server: {
           process: {
-            url: '/api/map/uploadImg',
+            url: 'http://localhost:4000/api/map/uploadImg',
             method: 'POST',
             withCredentials: false,
             headers: {},
@@ -53,7 +53,7 @@ export default {
             onerror: null,
             ondata: null
           },
-          revert: '/api/map/uploadImg',
+          revert: 'http://localhost:4000/api/map/uploadImg',
           restore: null,
           load: null, // Handle this using Vue
           fetch: null
