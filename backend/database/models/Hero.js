@@ -22,6 +22,6 @@ const HeroSchema = new Schema({
         type: String,
         required: false
     }
-});
+},{ collection: 'heroes' });
 
 module.exports = mongoose.model('Hero', HeroSchema);
