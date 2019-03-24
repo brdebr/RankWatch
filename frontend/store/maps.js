@@ -30,6 +30,21 @@ export const mutations = {
   }
 }
 
+export const getters = {
+  orderByType(state) {
+    const aux = [...state.list].sort(function(a, b) {
+      if (a.type > b.type) {
+        return 1
+      } else if (a.type < b.type) {
+        return -1
+      } else {
+        return 0
+      }
+    })
+    return aux
+  }
+}
+
 export const actions = {
   async fetchMaps({ commit }) {
     try {
