@@ -8,12 +8,12 @@
       md10
       class="mb-auto"
     >
-      <v-card class="blue-grey darken-3">
-        <v-card-title class="headline pl-4">
+      <v-card class="blue-grey darken-2">
+        <v-card-title class="blue-grey darken-3 headline pl-4 elevation-2">
           Maps
         </v-card-title>
         <v-card-text class="pa-0">
-          <maps-list :maps="$store.state.maps.list" />
+          <maps-list :maps="$store.getters['maps/orderByType']" />
         </v-card-text>
       </v-card>
     </v-flex>

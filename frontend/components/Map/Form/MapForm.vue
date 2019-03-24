@@ -1,12 +1,6 @@
 <template>
   <v-card class="teal darken-4 rb-3">
-    <v-card-title class="secondary elevation-1">
-      <v-icon
-        large
-        left
-      >
-        mdi-twitter
-      </v-icon>
+    <v-card-title class="green darken-4 elevation-1 pl-4">
       <span class="title font-weight-light">
         Create map
       </span>

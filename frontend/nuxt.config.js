@@ -86,10 +86,10 @@ module.exports = {
       }
     },
     redirect: {
-      login: '/',
-      logout: '/',
-      user: '/',
-      callback: '/'
+      login: '/?login',
+      logout: '/?logout',
+      user: '/?user',
+      callback: '/?callback'
     }
   },
 

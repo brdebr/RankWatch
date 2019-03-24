@@ -13,7 +13,7 @@
           <span>
             Profile
           </span>
-          <v-spacer/>
+          <v-spacer />
           <span>_id: {{ this.$auth.user.user.id }}</span>
         </v-card-title>
         <v-card-text>

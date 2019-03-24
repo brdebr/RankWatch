@@ -65,8 +65,8 @@ export default {
 }
 </script>
 <style lang="scss">
-.bottom-bd{
-  .v-toolbar__content{
+.bottom-bd {
+  .v-toolbar__content {
     border-bottom: 3px solid #225aad;
   }
 }
