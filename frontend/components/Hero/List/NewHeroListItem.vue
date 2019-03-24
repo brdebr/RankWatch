@@ -1,0 +1,55 @@
+<template>
+  <v-dialog max-width="800">
+    <template v-slot:activator="{ on }">
+      <v-flex shrink>
+        <div class="hero-portrait-wrapper new-hero">
+          <div class="hero-portrait">
+            <v-btn depressed color="green darken-4" v-on="on">
+              <v-icon>
+                add
+              </v-icon>
+            </v-btn>
+          </div>
+        </div>
+      </v-flex>
+    </template>
+    <hero-form />
+  </v-dialog>
+</template>
+
+<script>
+import HeroForm from '@/components/Hero/Form/HeroForm'
+export default {
+  components: {
+    HeroForm
+  },
+  props: {
+    hero: {
+      type: Object,
+      default: () => {}
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.hero-portrait-wrapper {
+  &.new-hero {
+    &:hover {
+      border: 4px solid #f6f6f6;
+      cursor: initial;
+    }
+    .hero-portrait {
+      & {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .v-btn {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+</style>
