@@ -9,7 +9,8 @@ export const state = () => ({
       // { title: 'Seasons', icon: 'event_note', to: '/seasons' },
       { title: 'Maps', icon: 'map', to: '/maps' },
       { title: 'Heroes', icon: 'whatshot', to: '/heroes' },
-      { title: 'About', icon: 'info', to: '/about' }
+      { title: 'About', icon: 'info', to: '/about' },
+      { title: 'Admin', icon: 'build', to: '/admin/uploads' }
     ]
   }
 })

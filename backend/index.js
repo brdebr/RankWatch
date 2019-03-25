@@ -54,6 +54,7 @@ const { mongoose} = require ('./database/');
 }); */
 
 app.use('/api', require('./routes/auth.routes'));
+app.use('/api', require('./routes/admin.routes'));
 app.use('/api', require('./routes/user.routes'));
 app.use('/api', require('./routes/match.routes'));
 app.use('/api', require('./routes/map.routes'));
