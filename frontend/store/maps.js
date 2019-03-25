@@ -37,8 +37,10 @@ export const getters = {
         return 1
       } else if (a.type < b.type) {
         return -1
+      } else if (a.name > b.name) {
+        return 1
       } else {
-        return 0
+        return -1
       }
     })
     return aux
