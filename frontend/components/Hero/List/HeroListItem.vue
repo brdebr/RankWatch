@@ -3,6 +3,9 @@
     <div :class="'hero-portrait-wrapper '+hero.type.toLowerCase()">
       <div class="hero-portrait" :style="'background-image: url(\'http://localhost:4000/uploads/heroes/'+hero.imageFilename+'\')'" />
     </div>
+    <div class="hero-portrait-name">
+      {{ hero.name }}
+    </div>
   </v-flex>
 </template>
 
@@ -18,6 +21,16 @@ export default {
 </script>
 
 <style lang="scss">
+.hero-portrait-name {
+  font-family: 'Overwatch';
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  max-width: 76px;
+  padding-right: 15px;
+  text-decoration: underline;
+}
 .hero-portrait-wrapper {
   display: inline-block;
   position: relative;

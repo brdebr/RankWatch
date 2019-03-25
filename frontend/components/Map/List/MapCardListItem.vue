@@ -24,41 +24,33 @@
           </v-container>
         </v-img>
         <v-card-title class="overflow-hidden px-4">
-          <transition
-            name="fade-fast" 
+          <v-layout align-center class="map-actions" justify-space-between>
+            <transition
+              name="fade-fast" 
             mode="out-in"
           >
-            <v-layout v-if="hover" key="actions" align-center class="map-actions" justify-space-between>
-              <v-btn
-                depressed
-                small
-                class="ma-0"
-                color="blue accent-4"
-              >
-                <v-icon small>
-                  search
-                </v-icon>
-              </v-btn>
               <v-btn
                 depressed
                 small
                 class="ma-0"
                 color="success darken-2"
               >
-                <v-icon small>
+                <span class="text-capitalize">
+                  Edit
+                </span>
+                <v-icon class="mr-0" right small>
                   edit
                 </v-icon>
               </v-btn>
-            </v-layout>
-            <v-layout v-else key="type" align-center class="map-actions" justify-end>
-              <div class="caption">
-                {{ map.type }}
-              </div>
-              <div class="map-icon ml-2">
-                <img :src="'/svgs/map_'+map.type.toLowerCase()+'.svg'" :alt="map.type.toLowerCase()">
-              </div>
-            </v-layout>
-          </transition>
+            </transition>
+            <v-spacer />
+            <div class="caption">
+              {{ map.type }}
+            </div>
+            <div class="map-icon ml-2">
+              <img :src="'/svgs/map_'+map.type.toLowerCase()+'.svg'" :alt="map.type.toLowerCase()">
+            </div>
+          </v-layout>
         </v-card-title>
       </v-card>
     </v-hover>
@@ -77,13 +69,15 @@ export default {
 </script>
 
 <style lang="scss">
-.fade-fast-enter-active,
+.fade-fast-enter-active {
+  transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+}
 .fade-fast-leave-active {
-  transition: all 0.15s ease-out;
+  transition: opacity 0.15s ease-out, transform 0.3s ease-out;
 }
 .fade-fast-enter {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(-40px);
 }
 .fade-fast-leave-to {
   transform: translateY(-40px);
@@ -100,7 +94,7 @@ export default {
       position: relative;
       content: '';
       display: block;
-      width: 100%;
+      width: 101%;
       height: 100%;
       transition: transform 0.4s;
       transform-origin: bottom;

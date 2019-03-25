@@ -35,7 +35,7 @@
     </v-toolbar-title>
     <v-spacer />
     <login-form v-if="!$auth.user" />
-    <v-btn v-else @click="logOut">
+    <v-btn v-else outline @click="logOut">
       Logout
     </v-btn>
   </v-toolbar>

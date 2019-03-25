@@ -28,7 +28,7 @@
         href="https://github.com/brdebr/RankWatch"
         flat
       >
-        <span class="mx-2 body-1 hidden-xs-only">
+        <span class="mx-2 caption hidden-xs-only">
           Source code
         </span>
       </v-btn>
