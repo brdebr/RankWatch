@@ -16,7 +16,7 @@
     >
       <v-list>
         <v-list-tile
-          v-for="item in items"
+          v-for="item in filterPrivate"
           :key="item.to"
           :to="item.to"
           :title="item.title"
@@ -62,7 +62,12 @@
 export default {
   props: {
     items: { type: Array, default: () => [] }
-  }
+  },
+  computed: {
+    filterPrivate() {
+      return this.items.filter(el => el.private ? this.$auth.loggedIn : true)
+    }
+  },
 }
 </script>
 

@@ -10,9 +10,9 @@ exports.filestree = (req, res, next) => {
     })
 }
 
-exports.deletefile = (req, res, next) => {
+exports.deletefile = async (req, res, next) => {
     
-    fs.unlink(req.body.path, function (err) {
+    await fs.unlink(req.body.path, function (err) {
         if(err){
             res.json({
                 message:'Something didn\'t work :/',

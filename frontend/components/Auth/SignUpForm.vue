@@ -130,10 +130,10 @@ export default {
       try {
         this.$axios.post('/api/auth/signup', this.form).then(result => {
           if (result.status === 201) {
-            this.$toast.success('Successfully Signed Up', {
-              icon: 'done',
-              className: 'green lighten-1'
-            })
+            // this.$toast.success('Successfully Signed Up', {
+            //   icon: 'done',
+            //   className: 'green lighten-1'
+            // })
             this.$auth
               .loginWith('local', {
                 data: {
@@ -142,16 +142,16 @@ export default {
                 }
               })
               .then(result => {
-                this.$toast.success('Logged in!', {
-                  icon: 'fingerprint',
-                  className: 'green lighten-1'
-                })
+                // this.$toast.success('Logged in!', {
+                //   icon: 'fingerprint',
+                //   className: 'green lighten-1'
+                // })
                 this.dialog = false
               })
           }
         })
       } catch (e) {
-        this.$toast.error('Something went wrong :/', { icon: 'error' })
+        // this.$toast.error('Something went wrong :/', { icon: 'error' })
       }
     },
     submit() {
