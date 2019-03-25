@@ -27,9 +27,10 @@
           <v-layout align-center class="map-actions" justify-space-between>
             <transition
               name="fade-fast" 
-            mode="out-in"
-          >
+              mode="out-in"
+            >
               <v-btn
+                v-if="hover && $auth.loggedIn"
                 depressed
                 small
                 class="ma-0"

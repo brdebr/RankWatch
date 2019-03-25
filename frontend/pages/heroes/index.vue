@@ -16,7 +16,7 @@
           <v-container fluid grid-list-lg>
             <v-layout class="px-2" row wrap>
               <hero-list-item v-for="hero in $store.getters['heroes/orderByType']" :key="hero._id" :hero="hero" />
-              <new-hero-list-item />
+              <new-hero-list-item v-if="$auth.loggedIn" />
             </v-layout>
           </v-container>
         </v-card-text>

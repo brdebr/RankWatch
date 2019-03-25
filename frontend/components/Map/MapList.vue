@@ -6,7 +6,7 @@
         :key="map.id"
         :map="map"
       />
-      <map-new-item />
+      <map-new-item v-if="$auth.loggedIn" />
     </v-layout>
   </v-container>
 </template>
