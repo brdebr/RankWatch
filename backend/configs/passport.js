@@ -5,7 +5,7 @@ const User = require('../database/models/User')
 
 const opts = {}
 opts.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken()
-opts.secretOrKey = "my-jwt-secret"
+opts.secretOrKey = process.env.JWT_SECRET || "my-jwt-secret"
 
 module.exports = passport => {
   passport.use(

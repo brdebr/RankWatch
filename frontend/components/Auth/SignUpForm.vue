@@ -81,6 +81,18 @@
         v-if="!loading"
         class="pb-4"
       >
+      <v-text-field
+            id="pin"
+            v-model="form.pin"
+            class="ml-2"
+            :rules="[v => !!v || 'Pin can\'t be empty']"
+            validate-on-blur
+            prepend-icon="phonelink_lock"
+            hint="Request it to support"
+            name="pin"
+            label="PIN"
+            type="password"
+          />
         <v-spacer />
         <v-btn
           color="warning"
@@ -121,7 +133,8 @@ export default {
         username: '',
         email: '',
         password: '',
-        password2: ''
+        password2: '',
+        pin: ''
       }
     }
   },

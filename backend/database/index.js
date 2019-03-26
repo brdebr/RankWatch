@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
-const URI = 'mongodb://localhost/rankwatch-dev';
+
+if(process.env.NODE_ENV === 'production' && !process.env.DB_HOST){
+    throw Error ('No DB_HOST configured!')
+}
+const URI = (process.env.NODE_ENV === 'production' ? 
+'mongodb+srv://' + process.env.DB_USER +':'+process.env.DB_PASSWORD+'@'+process.env.DB_HOST+'/'+process.env.DB_NAME+'?retryWrites=true' :
+'mongodb://localhost/rankwatch-dev'
+ );
 
 mongoose.connect(URI,{ useNewUrlParser: true })
     .then(

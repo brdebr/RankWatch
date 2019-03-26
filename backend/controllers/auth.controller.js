@@ -7,6 +7,14 @@ exports.signup = async (req, res, next) => {
     const email = req.body.email
     const username = req.body.username
     const password = req.body.password
+    const pin = req.body.pin
+
+    if(process.env.NODE_ENV === 'production' && process.env.SIGNUP_PIN != pin){
+        res.status(500).json({
+            message: 'Something went wrong :/',
+            errors: ['Wrong PIN']
+        })
+    }
 
     if (!password || password.length === 0) {
         res.status(500).json({
@@ -15,7 +23,7 @@ exports.signup = async (req, res, next) => {
         })
     }
 
-    let hashedPw = await bcrypt.hash(password, 10)
+    let hashedPw = await bcrypt.hash(password, parseInt(process.env.USR_HASH || 5))
 
     let newUser = new User({
         username: username,
@@ -60,7 +68,7 @@ exports.login = async (req, res, next) => {
                         email: user.email,
                         username: user.username
                     },
-                    "my-jwt-secret", {
+                    process.env.JWT_SECRET || "my-jwt-secret", {
                         expiresIn: '1h'
                     }
                 )

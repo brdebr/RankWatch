@@ -6,8 +6,11 @@
   "scripts": {
     "api": "nodemon backend/main.js",
     "dev": "cd frontend & npm run dev",
+    "prod": "node backend",
+    "start": "concurrently \"npm:prod\" \"cd frontend & npm run build\"",
     "dev-api": "concurrently \"npm:api\" \"cd frontend & npm run dev\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd frontend & npm install"
   },
   "repository": {
     "type": "git",

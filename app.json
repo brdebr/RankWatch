@@ -1,0 +1,39 @@
+{
+    "name": "Rankwatch",
+    "scripts": {
+    },
+    "env": {
+      "DB_HOST": {
+        "required": true
+      },
+      "DB_USER": {
+        "required": true
+      },
+      "DB_PASSWORD": {
+        "required": true
+      },
+      "DB_NAME": {
+        "required": true
+      },
+      "JWT_SECRET": {
+        "required": true
+      },
+      "USR_HASH": {
+        "required": true
+      },
+      "API_URL": {
+        "required": true
+      }
+    },
+    "formation": {
+      "web": {
+        "quantity": 1
+      }
+    },
+    "stack": "heroku-18",
+    "buildpacks": [
+      {
+        "url": "heroku/nodejs"
+      }
+    ]
+  }
