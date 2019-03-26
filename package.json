@@ -5,12 +5,14 @@
   "main": "backend/index.js",
   "scripts": {
     "api": "nodemon backend/main.js",
-    "dev": "cd frontend & npm run dev",
-    "prod": "node backend",
-    "start": "concurrently \"npm:prod\" \"cd frontend & npm run build\"",
+    "dev": "cd frontend && npm run dev",
+    "prod": "cross-env NODE_ENV=production node backend",
+    "prodc": "cd frontend && npm run start",
+    "starts": "npm run prod & cd frontend && npm run start\"",
+    "startt": "concurrently \"npm run prod\" \"cd frontend && npm run start\"",
     "dev-api": "concurrently \"npm:api\" \"cd frontend & npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd frontend & npm install"
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
     "directory-tree": "^2.2.1",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",

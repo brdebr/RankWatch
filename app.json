@@ -21,7 +21,10 @@
       "USR_HASH": {
         "required": true
       },
-      "API_URL": {
+      "API_HOST": {
+        "required": true
+      },
+      "API_PORT": {
         "required": true
       }
     },

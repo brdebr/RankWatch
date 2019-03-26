@@ -40,7 +40,7 @@
                     </v-btn>
                   </template>
                   <v-card class="rb-3" max-height="80%">
-                    <v-img v-if="item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)" :src="'http://localhost:4000/uploads/'+item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)[3]+'/'+item.name"/>
+                    <v-img v-if="item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)" :src="$axios.defaults.baseURL+'/uploads/'+item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)[3]+'/'+item.name"/>
                     <v-card-actions class="pr-3 py-3 grey darken-4">
                       <v-spacer></v-spacer>
                       <span>

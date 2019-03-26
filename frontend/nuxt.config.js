@@ -1,5 +1,9 @@
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const pkg = require('./package')
+var apiBase = false
+if(process.env.API_HOST){
+  apiBase = process.env.API_HOST + ':' + process.env.API_PORT;
+}
 
 module.exports = {
   mode: 'universal',
@@ -63,7 +67,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: process.env.API_URL || 'http://localhost:4000',
+    baseURL: apiBase || 'http://localhost:4000',
     https: process.env.NODE_ENV === 'production'
   },
 
@@ -72,13 +76,13 @@ module.exports = {
       local: {
         endpoints: {
           login: {
-            url: 'http://localhost:4000/api/auth/login',
+            url: '/api/auth/login',
             method: 'post',
             propertyName: 'token'
           },
           logout: false,
           user: {
-            url: 'http://localhost:4000/api/users/current',
+            url: '/api/users/current',
             method: 'get',
             propertyName: 'user'
           }

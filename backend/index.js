@@ -6,7 +6,7 @@ const morgan = require('morgan');
 
 // Express
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.API_PORT || 4000;
 const www = process.env.WWW || './';
 
 // Settings

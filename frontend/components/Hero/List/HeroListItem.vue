@@ -1,7 +1,7 @@
 <template>
   <v-flex shrink>
     <div :class="'hero-portrait-wrapper '+hero.type.toLowerCase()">
-      <div class="hero-portrait" :style="'background-image: url(\'http://localhost:4000/uploads/heroes/'+hero.imageFilename+'\')'" />
+      <div class="hero-portrait" :style="'background-image: url(\''+$axios.defaults.baseURL+'/uploads/heroes/'+hero.imageFilename+'\')'" />
     </div>
     <div class="hero-portrait-name">
       {{ hero.name }}

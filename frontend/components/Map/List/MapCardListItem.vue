@@ -11,7 +11,7 @@
         <v-img
           class="filter-darken"
           height="200px"
-          :src="'http://localhost:4000/uploads/maps/'+map.imageFilename"
+          :src="$axios.defaults.baseURL+'/uploads/maps/'+map.imageFilename"
         >
           <v-container fill-height fluid>
             <v-layout fill-height>

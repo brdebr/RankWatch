@@ -44,7 +44,7 @@ export default {
       fpConfig: {
         server: {
           process: {
-            url: 'http://localhost:4000/api/hero/uploadImg',
+            url: this.$axios.defaults.baseURL+'/api/hero/uploadImg',
             method: 'POST',
             withCredentials: false,
             headers: {},
@@ -53,7 +53,7 @@ export default {
             onerror: null,
             ondata: null
           },
-          revert: 'http://localhost:4000/api/hero/uploadImg',
+          revert: this.$axios.defaults.baseURL+'api/hero/uploadImg',
           restore: null,
           load: null, // Handle this using Vue
           fetch: null
