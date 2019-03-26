@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
+import Vuetify, { VSnackbar, VIcon } from 'vuetify/lib'
 import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify, {
@@ -11,5 +11,8 @@ Vue.use(Vuetify, {
     warning: colors.amber.base,
     error: colors.deepOrange.accent4,
     success: colors.green.accent3
+  },
+  components: {
+    VSnackbar, VIcon
   }
 })

@@ -60,6 +60,7 @@ export default {
   methods: {
     logOut() {
       this.$auth.logout()
+      this.$toast('Logged out...', { icon: 'fingerprint' })
     }
   }
 }

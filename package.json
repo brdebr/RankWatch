@@ -5,6 +5,7 @@
   "main": "backend/index.js",
   "scripts": {
     "api": "nodemon backend/main.js",
+    "dev": "cd frontend & npm run dev",
     "dev-api": "concurrently \"npm:api\" \"cd frontend & npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

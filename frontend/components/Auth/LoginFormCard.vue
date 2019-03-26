@@ -84,7 +84,7 @@ export default {
   methods: {
     async google() {
       await this.$auth.loginWith('google').catch(e => {
-        // this.$toast('Error', { icon: 'fingerprint' })
+        this.$toast('Error', { icon: 'fingerprint' })
       })
     },
     async login() {
@@ -97,17 +97,17 @@ export default {
             }
           })
           .catch(e => {
-            // this.$toast.error('Failed Logging In', { icon: 'error_outline' })
+            this.$toast.error('Failed Logging In', { icon: 'error_outline' })
           })
         if (this.$auth.loggedIn) {
           this.dialog = false
-          // this.$toast.success('Successfully Logged In', {
-          //   icon: 'done',
-          //   className: 'green lighten-1'
-          // })
+          this.$toast.success('Successfully Logged In', {
+            icon: 'done',
+            className: 'green accent-4',
+          })
         }
       } catch (e) {
-        // this.$toast.error('Username or Password wrong', { icon: 'error' })
+        this.$toast.error('Username or Password wrong', { icon: 'error' })
       }
     }
   }
