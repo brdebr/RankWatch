@@ -1,6 +1,6 @@
 <template>
-  <v-card class="login-dialog pa-3">
-    <v-card-title class="justify-center pt-1">
+  <v-card class="login-dialog blue-grey darken-2">
+    <v-card-title class="blue-grey darken-3 justify-center ">
       <span class="headline">
         Login
       </span>

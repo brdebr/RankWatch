@@ -8,8 +8,8 @@
       md10
       class="mb-auto"
     >
-      <v-card>
-        <v-card-title class="headline elevation-2">
+      <v-card class="blue-grey darken-2">
+        <v-card-title class="blue-grey darken-3 headline elevation-2">
           <span>
             Profile
           </span>

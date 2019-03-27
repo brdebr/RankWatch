@@ -8,7 +8,7 @@
       md10
       class="mb-auto"
     >
-      <v-card>
+      <v-card class="blue-grey darken-2">
         <v-card-title class="elevation-1 secondary">
           <span class="display-1 ml-1">
             RankWatch
