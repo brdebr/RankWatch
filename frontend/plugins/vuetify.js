@@ -13,6 +13,7 @@ Vue.use(Vuetify, {
     success: colors.green.accent3
   },
   components: {
-    VSnackbar, VIcon
+    VSnackbar,
+    VIcon
   }
 })

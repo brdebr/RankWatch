@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VuetifyToast from 'vuetify-toast-snackbar'
 
- Vue.use(VuetifyToast, {
+Vue.use(VuetifyToast, {
   x: 'right', // default
   y: 'top', // default
   color: 'secondary', // default

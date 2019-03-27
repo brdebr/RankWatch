@@ -103,7 +103,7 @@ export default {
           this.dialog = false
           this.$toast.success('Successfully Logged In', {
             icon: 'done',
-            className: 'green accent-4',
+            className: 'green accent-4'
           })
         }
       } catch (e) {

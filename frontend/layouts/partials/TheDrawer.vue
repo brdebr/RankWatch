@@ -65,9 +65,9 @@ export default {
   },
   computed: {
     filterPrivate() {
-      return this.items.filter(el => el.private ? this.$auth.loggedIn : true)
+      return this.items.filter(el => (el.private ? this.$auth.loggedIn : true))
     }
-  },
+  }
 }
 </script>
 

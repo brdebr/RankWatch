@@ -26,26 +26,26 @@
                 {{ open ? 'folder_open' : 'folder' }}
               </v-icon>
               <v-icon v-if="item.type == 'file'">
-                {{ (item.extension && item.extension.match(/(\.jpg|\.png)$/)) ? 'photo' : 'insert_drive_file'}}
+                {{ (item.extension && item.extension.match(/(\.jpg|\.png)$/)) ? 'photo' : 'insert_drive_file' }}
               </v-icon>
             </template>
             <template v-slot:append="{ item, open, active }">
               <div v-if="active" class="d-flex">
                 <v-dialog v-if="item.extension && item.extension.match(/(\.jpg|\.png)$/)" max-width="550">
                   <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" v-if="item.type == 'file'" color="info darken-3" small>
+                    <v-btn v-if="item.type == 'file'" color="info darken-3" small v-on="on">
                       <v-icon small>
                         remove_red_eye
                       </v-icon>
                     </v-btn>
                   </template>
                   <v-card class="rb-3" max-height="80%">
-                    <v-img v-if="item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)" :src="'http://localhost:4000/uploads/'+item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)[3]+'/'+item.name"/>
+                    <v-img v-if="item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)" :src="'http://localhost:4000/uploads/'+item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)[3]+'/'+item.name" />
                     <v-card-actions class="pr-3 py-3 grey darken-4">
-                      <v-spacer></v-spacer>
+                      <v-spacer />
                       <span>
-                        {{item.name}}
-                        </span>
+                        {{ item.name }}
+                      </span>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
