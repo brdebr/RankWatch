@@ -47,7 +47,8 @@ module.exports = {
     '@/plugins/animejs.client',
     '@/plugins/moment',
     '@/plugins/particles.client',
-    '@/plugins/snackbar.client'
+    '@/plugins/snackbar.client',
+    '@/plugins/rx-js.client.js'
   ],
 
   /*
