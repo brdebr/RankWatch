@@ -28,6 +28,7 @@
             class="action"
             depressed
             dark
+            to="/profile"
             color="primary darken-1"
           >
             <span class="mr-2">

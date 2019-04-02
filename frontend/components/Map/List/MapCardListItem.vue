@@ -117,7 +117,8 @@ export default {
       content: '';
       display: block;
       width: 101%;
-      height: 100%;
+      height: 101%;
+      margin-top: -1px;
       transition: transform 0.4s;
       transform-origin: bottom;
       background-color: rgba(0, 0, 0, 0.7);
