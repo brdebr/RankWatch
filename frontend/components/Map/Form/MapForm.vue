@@ -1,11 +1,11 @@
 <template>
-  <v-card class="teal darken-4 rb-3">
+  <v-card class="teal darken-4 bdrs-3">
     <v-card-title class="green darken-4 elevation-1 pl-4">
       <span class="title font-weight-light">
         Create map
       </span>
       <v-spacer />
-      <v-btn 
+      <v-btn
         icon
         color="success darken-3"
         :loading="form.loading"
@@ -15,12 +15,13 @@
       </v-btn>
     </v-card-title>
     <v-card-text class="pt-0 card-form">
-      <v-form ref="form" v-model="form.valid">
+      <v-form
+        ref="form"
+        v-model="form.valid"
+      >
         <v-container class="pb-0">
           <v-layout>
-            <v-flex
-              xs9
-            >
+            <v-flex xs9>
               <v-text-field
                 v-model="map.name"
                 :rules="form.nameRules"
@@ -30,9 +31,7 @@
                 required
               />
             </v-flex>
-            <v-flex
-              xs3
-            >
+            <v-flex xs3>
               <v-select
                 v-model="selectedType"
                 color="#ecde1a"
@@ -41,20 +40,32 @@
                 @change="setTypeName"
               >
                 <template v-slot:item="{ item, index }">
-                  <div class="map-select-item" :title="item.name">
+                  <div
+                    class="map-select-item"
+                    :title="item.name"
+                  >
                     <span class="body-1">
                       {{ item.name }}
                     </span>
-                    <img :src="item.imgUrl" :alt="item.name + ' image'">
+                    <img
+                      :src="item.imgUrl"
+                      :alt="item.name + ' image'"
+                    >
                   </div>
                 </template>
-    
+
                 <template v-slot:selection="{ item, index }">
-                  <div class="map-select-item selected" :title="item.name">
+                  <div
+                    class="map-select-item selected"
+                    :title="item.name"
+                  >
                     <span class="body-1">
                       {{ item.name }}
                     </span>
-                    <img :src="item.imgUrl" :alt="item.name + ' image'">
+                    <img
+                      :src="item.imgUrl"
+                      :alt="item.name + ' image'"
+                    >
                   </div>
                 </template>
               </v-select>

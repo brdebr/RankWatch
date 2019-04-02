@@ -31,7 +31,7 @@
             </template>
             <template v-slot:append="{ item, open, active }">
               <div v-if="active" class="d-flex">
-                <v-dialog v-if="item.extension && item.extension.match(/(\.jpg|\.png)$/)" max-width="550">
+                <v-dialog v-if="item.extension && item.extension.match(/(\.jpg|\.png)$/)" max-width="550" lazy>
                   <template v-slot:activator="{ on }">
                     <v-btn v-if="item.type == 'file'" color="info darken-3" small v-on="on">
                       <v-icon small>
@@ -39,7 +39,7 @@
                       </v-icon>
                     </v-btn>
                   </template>
-                  <v-card class="rb-3" max-height="80%">
+                  <v-card class="bdrs-3" max-height="80%">
                     <v-img v-if="item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)" :src="'http://localhost:4000/uploads/'+item.path.match(/(uploads(\/|\\).*(heroes|maps)).*$/)[3]+'/'+item.name" />
                     <v-card-actions class="pr-3 py-3 grey darken-4">
                       <v-spacer />

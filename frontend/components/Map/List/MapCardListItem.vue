@@ -7,15 +7,25 @@
     grow
   >
     <v-hover>
-      <v-card slot-scope="{ hover }" class="rb-3">
+      <v-card
+        slot-scope="{ hover }"
+        class="bdrs-3"
+      >
         <v-img
           class="filter-darken"
           height="200px"
           :src="'http://localhost:4000/uploads/maps/'+map.imageFilename"
         >
-          <v-container fill-height fluid>
+          <v-container
+            fill-height
+            fluid
+          >
             <v-layout fill-height>
-              <v-flex xs12 align-end class="pa-0">
+              <v-flex
+                xs12
+                align-end
+                class="pa-0"
+              >
                 <span class="title map-item-name">
                   {{ map.name }}
                 </span>
@@ -24,9 +34,13 @@
           </v-container>
         </v-img>
         <v-card-title class="overflow-hidden px-4">
-          <v-layout align-center class="map-actions" justify-space-between>
+          <v-layout
+            align-center
+            class="map-actions"
+            justify-space-between
+          >
             <transition
-              name="fade-fast" 
+              name="fade-fast"
               mode="out-in"
             >
               <v-btn
@@ -39,7 +53,11 @@
                 <span class="text-capitalize">
                   Edit
                 </span>
-                <v-icon class="mr-0" right small>
+                <v-icon
+                  class="mr-0"
+                  right
+                  small
+                >
                   edit
                 </v-icon>
               </v-btn>
@@ -49,7 +67,10 @@
               {{ map.type }}
             </div>
             <div class="map-icon ml-2">
-              <img :src="'/svgs/map_'+map.type.toLowerCase()+'.svg'" :alt="map.type.toLowerCase()">
+              <img
+                :src="'/svgs/map_'+map.type.toLowerCase()+'.svg'"
+                :alt="map.type.toLowerCase()"
+              >
             </div>
           </v-layout>
         </v-card-title>

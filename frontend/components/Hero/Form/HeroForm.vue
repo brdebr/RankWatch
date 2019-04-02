@@ -1,5 +1,5 @@
 <template>
-  <v-card class="blue darken-4 rb-3">
+  <v-card class="blue darken-4 bdrs-3">
     <v-card-title class="indigo darken-4 elevation-1 pl-4">
       <span class="title font-weight-light">
         Create hero

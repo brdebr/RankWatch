@@ -22,7 +22,19 @@
         </v-card-text>
         <v-card-actions class="overflow-hidden">
           <v-spacer />
-          <sign-up-form class="action" />
+          <sign-up-form v-if="!$auth.loggedIn" class="action" />
+          <v-btn
+            v-else
+            class="action"
+            depressed
+            dark
+            color="primary darken-1"
+          >
+            <span class="mr-2">
+              Profile
+            </span>
+            <v-icon>account_box</v-icon>
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
