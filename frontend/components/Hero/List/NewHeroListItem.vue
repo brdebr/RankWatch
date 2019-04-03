@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="800">
+  <v-dialog v-model="dialog" max-width="800">
     <template v-slot:activator="{ on }">
       <v-flex shrink>
         <div class="hero-portrait-wrapper new-hero">
@@ -13,7 +13,7 @@
         </div>
       </v-flex>
     </template>
-    <hero-form />
+    <hero-form @heroCreated="closeDialog" />
   </v-dialog>
 </template>
 
@@ -27,6 +27,16 @@ export default {
     hero: {
       type: Object,
       default: () => {}
+    }
+  },
+  data() {
+    return {
+      dialog: false
+    }
+  },
+  methods: {
+    closeDialog() {
+      this.dialog = false
     }
   }
 }

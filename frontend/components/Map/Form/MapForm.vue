@@ -73,7 +73,7 @@
           </v-layout>
           <v-layout>
             <v-flex class="pb-0">
-              <map-image-form @upload="imgUploaded" />
+              <map-image-form ref="pond" @upload="imgUploaded" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -125,6 +125,11 @@ export default {
       const response = await this.$axios.$post('/api/map/', this.map)
       if (response) {
         this.form.loading = false
+        this.map.name = ''
+        this.map.type = ''
+        this.selectedType = ''
+        this.$refs.form.resetValidation()
+        this.$refs.pond.$refs.pond.removeFiles()
         this.$emit('mapCreated') // TODO send map from the response
         this.$store.dispatch('maps/fetchMaps')
       }
