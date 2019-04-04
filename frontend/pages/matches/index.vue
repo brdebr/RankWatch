@@ -13,7 +13,8 @@
           Matches
         </v-card-title>
         <v-card-text>
-          <match-list :matches="$store.state.matches.list" />
+          <match-list v-if="false" :matches="$store.state.matches.list" />
+          <match-form v-else />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -22,13 +23,17 @@
 
 <script>
 import MatchList from '~/components/Match/MatchList'
+import MatchForm from '~/components/Match/MatchForm'
 export default {
   components: {
-    MatchList
+    MatchList,
+    MatchForm
   },
   middleware: 'auth',
   async fetch({ store, params }) {
     await store.dispatch('matches/fetchMatches')
+    await store.dispatch('heroes/fetchHeroes')
+    await store.dispatch('maps/fetchMaps')
   },
   transition: {
     css: false,

@@ -8,10 +8,10 @@
       md10
       class="mb-auto"
     >
-      <v-card color="teal darken-1">
-        <v-card-title class="teal darken-2 elevation-2">
+      <v-card color="indigo">
+        <v-card-title class="indigo darken-1 elevation-2">
           <span class="title ml-2">
-            Admin > Uploads
+            Admin > Uploads folder
           </span>
         </v-card-title>
         <v-card-text>
@@ -33,9 +33,9 @@
               <div v-if="active" class="d-flex">
                 <v-dialog v-if="item.extension && item.extension.match(/(\.jpg|\.png)$/)" max-width="550" lazy>
                   <template v-slot:activator="{ on }">
-                    <v-btn v-if="item.type == 'file'" color="info darken-3" small v-on="on">
+                    <v-btn v-if="item.type == 'file'" light color="grey lighten-3" small v-on="on">
                       <v-icon small>
-                        remove_red_eye
+                        visibility
                       </v-icon>
                     </v-btn>
                   </template>
