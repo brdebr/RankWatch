@@ -15,5 +15,12 @@ Vue.use(Vuetify, {
   components: {
     VSnackbar,
     VIcon
+  },
+  customProperties: true,
+  iconfont: 'md',
+  minifyTheme: function(css) {
+    return process.env.NODE_ENV === 'production'
+      ? css.replace(/[\s|\r\n|\r|\n]/g, '')
+      : css
   }
 })

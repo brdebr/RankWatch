@@ -37,7 +37,8 @@ module.exports = {
     '~/assets/style/custom-utils.scss',
     '~/assets/style/custom-transitions.scss',
     'filepond/dist/filepond.min.css',
-    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   /*
@@ -49,7 +50,8 @@ module.exports = {
     '@/plugins/moment',
     '@/plugins/particles.client',
     '@/plugins/snackbar.client',
-    '@/plugins/rx-js.client.js'
+    '@/plugins/rx-js.client.js',
+    '@/plugins/fontawesome'
   ],
 
   /*
@@ -58,7 +60,24 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    [
+      'nuxt-fontawesome',
+      {
+        component: 'fa',
+        imports: [
+          //import whole set
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          }
+        ]
+      }
+    ]
   ],
   /*
   ** Axios module configuration
