@@ -1,9 +1,9 @@
 <template>
-  <v-flex shrink>
-    <div :class="'hero-portrait-wrapper '+hero.type.toLowerCase()">
+  <v-flex class="pa-1" shrink @click="$emit('click')">
+    <div :class="'hero-portrait-wrapper '+ hero.type.toLowerCase() + (active ? ' active' : '')">
       <div class="hero-portrait" :style="'background-image: url(\'http://localhost:4000/uploads/heroes/'+hero.imageFilename+'\')'" />
     </div>
-    <div class="hero-portrait-name">
+    <div :class="'hero-portrait-name '+( black ? 'black--text' : '')">
       {{ hero.name }}
     </div>
   </v-flex>
@@ -15,6 +15,14 @@ export default {
     hero: {
       type: Object,
       default: () => {}
+    },
+    black: {
+      type: Boolean,
+      default: () => {}
+    },
+    active: {
+      type: Boolean,
+      default: () => {}
     }
   }
 }
@@ -24,9 +32,9 @@ export default {
 .hero-portrait-name {
   font-family: 'Overwatch';
   letter-spacing: 1.5px;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 800;
   max-width: 76px;
   padding-right: 15px;
   text-decoration: underline;
@@ -67,6 +75,13 @@ export default {
   }
   &.support {
     border: 4px solid #00c853;
+  }
+  &.active {
+    border: 8px solid #225aad;
+    &:hover {
+      border: 6px solid #225aad;
+      cursor: pointer;
+    }
   }
   &:hover {
     border: 4px solid #225aad;
