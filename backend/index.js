@@ -43,17 +43,8 @@ require('./configs/passport')(passport)
 // MongoDB
 const { mongoose} = require ('./database/');
 
-
-// Routes
-/* app.use('/',(req, res) =>{
-    console.log("Request to route: \"/\"");
-    res.json({
-        message:'Hello World',
-        status:'OK :D',
-    });
-}); */
-
 app.use('/api', require('./routes/auth.routes'));
+app.use('/api', require('./routes/file.routes'));
 app.use('/api', require('./routes/admin.routes'));
 app.use('/api', require('./routes/user.routes'));
 app.use('/api', require('./routes/match.routes'));
