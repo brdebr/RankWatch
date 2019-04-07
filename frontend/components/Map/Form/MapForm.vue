@@ -33,6 +33,7 @@
             </v-flex>
             <v-flex xs3>
               <v-select
+                ref="typeSelect"
                 v-model="selectedType"
                 color="#ecde1a"
                 :items="$store.state.maps.types"
@@ -73,7 +74,7 @@
           </v-layout>
           <v-layout>
             <v-flex class="pb-0">
-              <map-image-form ref="pond" @upload="imgUploaded" />
+              <map-image-form ref="mapPond" @upload="imgUploaded" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -129,13 +130,16 @@ export default {
         this.map.type = ''
         this.selectedType = ''
         this.$refs.form.resetValidation()
-        this.$refs.pond.$refs.pond.removeFiles()
+        this.$refs.mapPond.$refs.pond.removeFiles()
         this.$emit('mapCreated') // TODO send map from the response
         this.$store.dispatch('maps/fetchMaps')
       }
     },
     setTypeName(type) {
       this.map.type = type.name
+    },
+    setMap(map) {
+      this.map = { ...map }
     }
   }
 }

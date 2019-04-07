@@ -5,25 +5,54 @@
         v-for="map in maps"
         :key="map.id"
         :map="map"
+        @editMap="editMap"
       />
       <map-new-item v-if="$auth.loggedIn" />
     </v-layout>
+    <v-dialog
+      v-model="dialogEdit"
+      class="w-100"
+      max-width="800px"
+    >
+      <v-card>
+        <map-form ref="mapForm" />
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
 import MapNewItem from '~/components/Map/List/MapNewItem'
 import MapCardListItem from '~/components/Map/List/MapCardListItem'
+import MapForm from '~/components/Map/Form/MapForm'
 
 export default {
   components: {
     MapNewItem,
-    MapCardListItem
+    MapCardListItem,
+    MapForm
   },
   props: {
     maps: {
       type: Array,
       default: () => []
+    }
+  },
+  data() {
+    return {
+      editingMap: {},
+      dialogEdit: false
+    }
+  },
+  methods: {
+    editMap(map) {
+      this.$refs.mapForm.setMap(map)
+      this.$refs.mapForm.$refs.typeSelect.selectedItems = this.$store.state.maps.types.filter(
+        el => el.name === map.type
+      )
+      this.$refs.mapForm.$refs.mapPond.setImage(map.imageFilename)
+
+      this.dialogEdit = true
     }
   }
 }

@@ -8,7 +8,7 @@
         :allow-replace="true"
         :drop-on-page="true"
         :allow-revert="false"
-        :allow-multiple="false"  
+        :allow-multiple="false"
         accepted-file-types="image/jpeg, image/png"
         :server="fpConfig.server"
         :files="mapImage"
@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      mapImage: [],
+      mapImage: null,
       mapImageTempId: [],
       uploaded: false,
       fpConfig: {
@@ -55,7 +55,16 @@ export default {
           },
           revert: 'http://localhost:4000/api/map/uploadImg',
           restore: null,
-          load: null, // Handle this using Vue
+          load: {
+            url: 'http://localhost:4000/uploads/maps/',
+            method: 'GET',
+            withCredentials: false,
+            headers: {},
+            timeout: 7000,
+            onload: null,
+            onerror: null,
+            ondata: null
+          },
           fetch: null
         }
       }
@@ -69,6 +78,16 @@ export default {
     onUpload() {
       this.uploaded = true
       this.$emit('upload', this.mapImageTempId)
+    },
+    setImage(id) {
+      this.mapImage = [
+        {
+          source: id,
+          options: {
+            type: 'local'
+          }
+        }
+      ]
     }
   }
 }

@@ -49,6 +49,7 @@
                 small
                 class="ma-0"
                 color="success darken-2"
+                @click="editMap"
               >
                 <span class="text-capitalize">
                   Edit
@@ -85,6 +86,11 @@ export default {
     map: {
       type: Object,
       default: () => {}
+    }
+  },
+  methods: {
+    editMap() {
+      this.$emit('editMap', this.map)
     }
   }
 }
