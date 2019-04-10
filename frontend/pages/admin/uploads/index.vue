@@ -56,6 +56,11 @@
                 </v-btn>
               </div>
             </template>
+            <template v-slot:label="{ item, open, active }">
+              <span>
+                {{ item.name }} {{ item.children ? ' [ '+item.children.length+' ]' : '' }}
+              </span>
+            </template>
           </v-treeview>
         </v-card-text>
       </v-card>
