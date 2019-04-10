@@ -15,7 +15,7 @@
       max-width="800px"
     >
       <v-card>
-        <map-form ref="mapForm" />
+        <map-form ref="mapForm" edit @updatedMap="closeModal" />
       </v-card>
     </v-dialog>
   </v-container>
@@ -53,6 +53,9 @@ export default {
       this.$refs.mapForm.$refs.mapPond.setImage(map.imageFilename)
 
       this.dialogEdit = true
+    },
+    closeModal() {
+      this.dialogEdit = false
     }
   }
 }

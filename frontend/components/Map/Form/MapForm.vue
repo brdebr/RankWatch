@@ -6,12 +6,24 @@
       </span>
       <v-spacer />
       <v-btn
+        v-if="!edit"
         icon
         color="success darken-3"
         :loading="form.loading"
         @click="createMap"
       >
         <v-icon>add</v-icon>
+      </v-btn>
+      <v-btn
+        v-else
+        icon
+        color="success darken-3"
+        :loading="form.loading"
+        @click="updateMap"
+      >
+        <v-icon small>
+          edit
+        </v-icon>
       </v-btn>
     </v-card-title>
     <v-card-text class="pt-0 card-form">
@@ -90,6 +102,12 @@ export default {
   components: {
     MapImageForm
   },
+  props: {
+    edit: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       form: {
@@ -133,6 +151,17 @@ export default {
         this.$refs.mapPond.$refs.pond.removeFiles()
         this.$emit('mapCreated') // TODO send map from the response
         this.$store.dispatch('maps/fetchMaps')
+      }
+    },
+    async updateMap() {
+      this.form.loading = true
+      const response = await this.$axios.put(
+        '/api/map/' + this.map._id,
+        this.map
+      )
+      if (response) {
+        this.form.loading = false
+        this.$emit('mapUpdated')
       }
     },
     setTypeName(type) {
