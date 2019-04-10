@@ -33,7 +33,7 @@
                   <fa
                     :icon="props.item.icon"
                     :color="props.item.color"
-                    style="font-size: 18px"
+                    style="font-size: 18px; margin-left:2px; margin-right:1px"
                   />
                 </v-avatar>
                 <span class="body-2">
@@ -73,8 +73,20 @@ export default {
         {
           title: 'Node.js',
           description: 'The runtime to build everthing using Js',
-          icon: ['fab', 'node'],
+          icon: ['fab', 'node-js'],
           color: '#4CAF50'
+        },
+        {
+          title: 'Express js',
+          description: 'The web framework to build the API',
+          icon: ['fas', 'hdd'],
+          color: '#808080'
+        },
+        {
+          title: 'MongoDB',
+          description: 'The NoSQL database system, using mongoose ORM',
+          icon: ['fas', 'database'],
+          color: '#960d0d'
         },
         {
           title: 'Nuxt',
@@ -87,6 +99,25 @@ export default {
           description: 'As the base frontend framework',
           icon: ['fab', 'vuejs'],
           color: '#2E7D32'
+        },
+        {
+          title: 'Anime js',
+          description: 'As the the library for complex animations',
+          icon: ['fas', 'signature'],
+          color: '#F64E4D'
+        },
+        {
+          title: 'Particles js',
+          description: 'As the the library for the background particles',
+          icon: ['fas', 'braille'],
+          color: '#EE8100'
+        },
+        {
+          title: 'RsJx',
+          description:
+            'As the reactive extensions Library for complex behaviours',
+          icon: ['fas', 'prescription'],
+          color: '#e20d8d'
         },
         {
           title: 'Vuetify',
