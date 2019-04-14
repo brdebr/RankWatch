@@ -84,7 +84,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://localhost:4000/'
+    baseURL: 'http://localhost:4000/',
+    debug: true
   },
 
   auth: {
