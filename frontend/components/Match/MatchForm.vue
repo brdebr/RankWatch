@@ -57,7 +57,9 @@
               v-model="match.sr"
               label="Skill rating"
             />
-            <sr-input v-else />
+            <no-ssr v-else>
+              <sr-input />
+            </no-ssr>
           </v-flex>
         </v-layout>
         <v-layout row wrap justify-center>

@@ -12,7 +12,13 @@ exports.filestree = (req, res, next) => {
 }
 
 exports.deletefile = async (req, res, next) => {
-    let file = await File.findOne({path: req.body.path})
+    const { imageId } = req.params;
+    let file = {}
+    if(req.body.path){
+        file = await File.findOne({path: req.body.path})
+    }else{
+        file = await File.findById(imageId)
+    }
     if(file){
         await fs.unlink(file.path, function (err) {
             if(err){

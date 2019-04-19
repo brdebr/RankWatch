@@ -15,7 +15,7 @@
       max-width="800px"
     >
       <v-card>
-        <map-form ref="mapForm" edit @updatedMap="closeModal" />
+        <map-form ref="mapForm" edit @mapDeleted="closeModal" @mapUpdated="closeModal" />
       </v-card>
     </v-dialog>
   </v-container>
@@ -56,6 +56,7 @@ export default {
     },
     closeModal() {
       this.dialogEdit = false
+      this.$store.dispatch('maps/fetchMaps')
     }
   }
 }

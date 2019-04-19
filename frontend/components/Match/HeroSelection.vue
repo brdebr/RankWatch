@@ -1,6 +1,6 @@
 <template>
   <v-card light>
-    <v-card-title class="elevation-2" style="border-bottom: 1px solid silver">
+    <v-card-title class="elevation-2 mb-1">
       <span class="body-1 font-weight-bold">
         Heroes
       </span>

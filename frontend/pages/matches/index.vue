@@ -34,31 +34,6 @@ export default {
     await store.dispatch('matches/fetchMatches')
     await store.dispatch('heroes/fetchHeroes')
     await store.dispatch('maps/fetchMaps')
-  },
-  transition: {
-    css: false,
-    enter(el, done) {
-      const tl = this.$anime.timeline()
-
-      tl
-        // Move page down
-        .add({
-          targets: el,
-          translateY: ['-100%', '0%'],
-          opacity: [0, 1],
-          easing: 'easeOutElastic(2, 1.8)'
-        })
-        // Move rows left to right with delay
-        .add({
-          targets: el.querySelectorAll('.match-list tbody tr'),
-          translateX: ['-100%', '0%'],
-          easing: 'easeOutElastic(2, 1.5)',
-          duration: 750,
-          delay: this.$anime.stagger(250, { start: 300 })
-        })
-
-      tl.finished.then(done)
-    }
   }
 }
 </script>

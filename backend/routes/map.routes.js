@@ -6,6 +6,7 @@ const upload = multer({ dest: 'uploads/temp/maps' })
 // const upload = multer({ dest: 'uploads/public/maps' })
 
 const map = require('../controllers/map.controller');
+const admin = require('../controllers/admin.controller');
 
 router.post(
     '/map/uploadImg', // Route
@@ -15,6 +16,10 @@ router.post(
 
 router.get(
     '/map/uploadImg/:imageId', map.getUploadImg
+)
+
+router.delete(
+    '/map/deleteImg/:imageId', admin.deletefile
 )
 
 router.get('/maps', map.getMaps);
