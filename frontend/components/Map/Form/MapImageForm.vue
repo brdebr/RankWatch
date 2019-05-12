@@ -36,6 +36,12 @@ export default {
   components: {
     FilePond
   },
+  props: {
+    map: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data() {
     return {
       mapImage: null,
@@ -64,6 +70,14 @@ export default {
             onload: null,
             onerror: null,
             ondata: null
+          },
+          remove: async (source, load, error) => {
+            // console.log({ source })
+            await this.$axios.delete('/api/map/deleteImg/' + this.map.imgId)
+            // error('oh my goodness');
+            // console.log(response.data)
+
+            load()
           },
           fetch: null
         }

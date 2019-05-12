@@ -2,9 +2,20 @@
   <v-card class="teal darken-4 bdrs-3">
     <v-card-title class="green darken-4 elevation-1 pl-4">
       <span class="title font-weight-light">
-        Create map
+        {{ edit ? 'Edit' : 'Create' }} map
       </span>
       <v-spacer />
+      <v-btn
+        v-if="edit"
+        icon
+        color="red darken-3"
+        :loading="form.loading"
+        @click="deleteMap"
+      >
+        <v-icon small>
+          delete
+        </v-icon>
+      </v-btn>
       <v-btn
         v-if="!edit"
         icon
@@ -86,7 +97,7 @@
           </v-layout>
           <v-layout>
             <v-flex class="pb-0">
-              <map-image-form ref="mapPond" @upload="imgUploaded" />
+              <map-image-form ref="mapPond" :map="edit ? map : null" @upload="imgUploaded" />
             </v-flex>
           </v-layout>
         </v-container>
@@ -155,14 +166,17 @@ export default {
     },
     async updateMap() {
       this.form.loading = true
-      const response = await this.$axios.put(
-        '/api/map/' + this.map._id,
-        this.map
-      )
+      const { imgId, imageFilename, ...aux } = this.map
+      const response = await this.$axios.put('/api/map/' + this.map._id, aux)
       if (response) {
         this.form.loading = false
         this.$emit('mapUpdated')
       }
+    },
+    async deleteMap() {
+      const response = await this.$axios.delete('/api/map/' + this.map._id)
+      console.log(response)
+      this.$emit('mapDeleted')
     },
     setTypeName(type) {
       this.map.type = type.name
