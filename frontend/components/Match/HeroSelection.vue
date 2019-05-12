@@ -34,6 +34,11 @@ export default {
       )
     }
   },
+  computed: {
+    selectedSize() {
+      return this.heroList.filter(el => el.active).length
+    }
+  },
   methods: {
     toggleHero(hero) {
       hero.active = !hero.active

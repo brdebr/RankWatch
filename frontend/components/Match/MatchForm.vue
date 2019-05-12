@@ -121,6 +121,9 @@
             </v-container>
           </v-flex>
         </v-layout>
+        <v-layout class="py-3 pl-3">
+          <hero-selected-list :list="rounds[0].heroes" />
+        </v-layout>
         <v-layout class="my-3" row>
           <v-flex xs12>
             <hero-selection @selectedHero="selectHero" />
@@ -134,10 +137,13 @@
 <script>
 import SrInput from '@/components/Match/SrInput'
 import HeroSelection from '@/components/Match/HeroSelection'
+import HeroSelectedList from '@/components/Match/HeroSelectedList'
+
 export default {
   components: {
     SrInput,
-    HeroSelection
+    HeroSelection,
+    HeroSelectedList
   },
   data() {
     return {
@@ -173,7 +179,9 @@ export default {
     selectHero(hero) {
       if (hero.active) {
         const { active, ...selection } = hero
-        this.rounds[0].heroes.push(selection)
+        if (this.rounds[0].heroes.length <= 5) {
+          this.rounds[0].heroes.push(selection)
+        }
       } else {
         this.rounds[0].heroes = this.rounds[0].heroes.filter(
           el => el._id !== hero._id
