@@ -4,7 +4,7 @@
   "description": "Web App to manage a history of Overwatch ranked games",
   "main": "backend/index.js",
   "scripts": {
-    "api": "nodemon --ignore './frontend/' backend/main.js",
+    "api": "nodemon --ignore './frontend/' --inspect backend/index.js",
     "dev": "cd frontend & npm run dev",
     "dev-api": "concurrently \"npm:api\" \"cd frontend & npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
