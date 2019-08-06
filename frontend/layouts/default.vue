@@ -27,15 +27,15 @@
           </v-list-item>
         </v-list>
         <v-spacer />
-        <v-list>
-          <v-list-item @click.stop="miniVariant = !miniVariant">
-            <v-list-item-action>
-              <v-icon
-                >mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon
-              >
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
+        <transition name="flip-x" mode="out-in">
+          <div :key="miniVariant" class="mx-auto mb-3">
+            <v-btn icon small outlined @click.stop="miniVariant = !miniVariant">
+              <v-icon>
+                {{ miniVariant ? 'mdi-chevron-right' : 'mdi-chevron-left' }}
+              </v-icon>
+            </v-btn>
+          </div>
+        </transition>
       </v-layout>
     </v-navigation-drawer>
     <v-app-bar clipped-left app>
