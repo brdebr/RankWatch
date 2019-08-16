@@ -1,6 +1,11 @@
 <template>
   <v-app-bar class="blue-grey darken-4 bottom-bd" clipped-left app flat>
-    <v-app-bar-nav-icon @click="$store.commit('general/toggleDrawer')" />
+    <v-app-bar-nav-icon
+      class="orange--text text--accent-3 ml-1"
+      outlined
+      small
+      @click="$store.commit('general/toggleDrawer')"
+    />
     <v-toolbar-title>
       <nuxt-link
         exact
@@ -9,6 +14,7 @@
         class="d-flex align-center"
         style="cursor:pointer"
       >
+        <logo class="ml-2 mr-3" />
         <span class="mr-4">
           {{ appName }}
         </span>
@@ -22,8 +28,13 @@
 </template>
 
 <script>
+import Logo from '~/components/Layout/Logo'
 const envMode = process.env.NODE_ENV
+
 export default {
+  components: {
+    Logo
+  },
   props: {
     appName: {
       type: String,

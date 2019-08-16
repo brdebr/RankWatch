@@ -19,10 +19,10 @@
           active-class="orange--text text--lighten-1"
           exact
         >
-          <v-list-item-icon>
+          <v-list-item-icon class="ml-2 mr-auto">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-content>
+          <v-list-item-content class="ml-4">
             <v-list-item-title>
               {{ item.title }}
             </v-list-item-title>
@@ -31,10 +31,18 @@
       </v-list>
       <v-spacer />
       <transition name="flip-x" mode="out-in">
-        <div :key="$store.state.general.layout.drawerMini" class="mx-auto mb-3">
+        <div
+          :key="$store.state.general.layout.drawerMini"
+          :class="
+            `${
+              $store.state.general.layout.drawerMini ? 'mx-auto' : 'mx-3'
+            } mb-3`
+          "
+        >
           <v-btn
-            icon
-            small
+            :icon="$store.state.general.layout.drawerMini"
+            :small="$store.state.general.layout.drawerMini"
+            :block="!$store.state.general.layout.drawerMini"
             outlined
             @click.stop="$store.commit('general/toggleDrawerMini')"
           >
