@@ -25,6 +25,7 @@
     "@nuxtjs/axios": "^5.3.6"
   },
   "devDependencies": {
+    "vue-particles": "github:brdebr/vue-particles",
     "@fortawesome/fontawesome-free": "^5.10.1",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
