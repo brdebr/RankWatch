@@ -14,11 +14,16 @@
         class="d-flex align-center"
         style="cursor:pointer"
       >
-        <logo class="ml-2 mr-3" />
-        <span class="mr-4">
+        <logo class="ml-2 mr-5" />
+        <span class="mr-4 main-font toolbar-title">
           {{ appName }}
         </span>
-        <v-btn v-if="envMode === 'development'" class="text-uppercase">
+        <v-btn
+          v-if="envMode === 'development'"
+          class="text-uppercase"
+          :style="'visibility:' + (debug ? 'visible' : 'hidden')"
+          @click.stop="debug = !debug"
+        >
           [| {{ $vuetify.breakpoint.name }} |]
         </v-btn>
       </nuxt-link>
@@ -43,7 +48,8 @@ export default {
   },
   data() {
     return {
-      envMode
+      envMode,
+      debug: envMode === 'development'
     }
   }
 }
@@ -54,5 +60,10 @@ export default {
   .v-toolbar__content {
     border-bottom: 3px solid #225aad;
   }
+}
+.toolbar-title {
+  font-size: 38px;
+  letter-spacing: 5px;
+  margin-top: 2px;
 }
 </style>

@@ -9,7 +9,7 @@
           particles-json="/particles-conf.json"
         />
       </no-ssr>
-      <v-container class="pb-5" fluid>
+      <v-container class="pb-5 pt-5" fluid>
         <nuxt />
       </v-container>
     </v-content>

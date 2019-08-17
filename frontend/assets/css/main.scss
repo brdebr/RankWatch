@@ -1,5 +1,6 @@
 @import '~/assets/css/utils.scss';
 @import '~/assets/css/transitions.scss';
+@import '~vuetify/src/styles/styles.sass';
 
 @font-face {
   font-family: 'Overwatch-i';
@@ -15,5 +16,9 @@
   font-family: 'Overwatch';
   &.italic {
     font-family: 'Overwatch-i';
+  }
+  &.page-title{
+    font-size: 48px;
+    // letter-spacing: 5px;
   }
 }
