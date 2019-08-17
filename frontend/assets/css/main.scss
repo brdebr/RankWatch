@@ -1,3 +1,19 @@
-
 @import '~/assets/css/utils.scss';
 @import '~/assets/css/transitions.scss';
+
+@font-face {
+  font-family: 'Overwatch-i';
+  src: url('/fonts/big_noodle_titling_oblique.ttf');
+}
+
+@font-face {
+  font-family: 'Overwatch';
+  src: url('/fonts/big_noodle_titling.ttf');
+}
+
+.main-font {
+  font-family: 'Overwatch';
+  &.italic {
+    font-family: 'Overwatch-i';
+  }
+}
