@@ -9,7 +9,7 @@
     @input="(val) => $store.commit('general/setDrawer', val)"
   >
     <v-layout column justify-space-between fill-height>
-      <v-list shaped>
+      <v-list :shaped="!$store.state.general.layout.drawerMini">
         <v-list-item
           v-for="item in $store.getters['general/filterDrawerPrivate']"
           :key="item.to"
@@ -19,7 +19,7 @@
           active-class="orange--text text--lighten-1"
           exact
         >
-          <v-list-item-icon class="ml-2 mr-auto">
+          <v-list-item-icon class="ml-3 mr-auto">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content class="ml-4">

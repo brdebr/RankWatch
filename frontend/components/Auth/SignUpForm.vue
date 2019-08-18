@@ -114,7 +114,7 @@ export default {
         this.$axios.post('/api/auth/signup', this.form).then((result) => {
           if (result.status === 201) {
             this.$toast.success('Successfully Signed Up', {
-              icon: 'done',
+              icon: 'mdi-done',
               className: 'green lighten-1'
             })
             this.$auth
@@ -126,7 +126,7 @@ export default {
               })
               .then((result) => {
                 this.$toast.success('Logged in!', {
-                  icon: 'fingerprint',
+                  icon: 'mdi-fingerprint',
                   className: 'green lighten-1'
                 })
                 this.dialog = false

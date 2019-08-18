@@ -27,7 +27,7 @@
         <v-divider />
         <v-card-actions class="overflow-hidden blue-grey darken-3">
           <v-spacer />
-          <sign-up-form v-if="true" />
+          <sign-up-form v-if="!$auth.loggedIn" />
           <v-btn
             v-else
             class="action"
@@ -39,7 +39,7 @@
             <span class="mr-2">
               Profile
             </span>
-            <v-icon>account_box</v-icon>
+            <v-icon>mdi-account-box</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -57,11 +57,12 @@ export default {
   },
   data() {
     return {
-      title: 'Keep track of your games'
+      title: 'Keep track of your progress'
     }
   },
   transition: {
     css: false,
+    appear: true,
     enter(el, done) {
       const tl = this.$anime.timeline()
       tl
@@ -69,6 +70,7 @@ export default {
         .add({
           targets: el,
           translateY: [-500, 0],
+          delay: 200,
           duration: 500,
           easing: 'easeOutElastic(.4, 1)'
         })
@@ -83,7 +85,7 @@ export default {
         .add({
           targets: el.querySelectorAll('.v-card__title .letter:not(.is-space)'),
           translateY: [-500, 0],
-          duration: 300,
+          duration: 290,
           delay: this.$anime.stagger(75),
           easing: 'easeOutElastic(5, 1)'
         })

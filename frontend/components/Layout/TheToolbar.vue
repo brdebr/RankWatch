@@ -29,16 +29,22 @@
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer />
+    <login-form v-if="!$auth.loggedIn" />
+    <v-btn v-else outlined @click="logOut">
+      Logout
+    </v-btn>
   </v-app-bar>
 </template>
 
 <script>
 import Logo from '~/components/Layout/Logo'
+import LoginForm from '~/components/Auth/LoginForm'
 const envMode = process.env.NODE_ENV
 
 export default {
   components: {
-    Logo
+    Logo,
+    LoginForm
   },
   props: {
     appName: {
@@ -50,6 +56,12 @@ export default {
     return {
       envMode,
       debug: envMode === 'development'
+    }
+  },
+  methods: {
+    logOut() {
+      this.$auth.logout()
+      this.$toast('Logged out...', { icon: 'mdi-fingerprint' })
     }
   }
 }

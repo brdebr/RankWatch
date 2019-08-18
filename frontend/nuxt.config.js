@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+const isProd = process.env.NODE_ENV !== 'production'
 export default {
   mode: 'universal',
   /*
@@ -32,7 +32,8 @@ export default {
    */
   plugins: [
     '@/plugins/particles.client',
-    '@/plugins/animejs.client'
+    '@/plugins/animejs.client',
+    '@/plugins/snackbar.client'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -47,13 +48,17 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:4000/',
+    debug: isProd
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -73,6 +78,33 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'http://localhost:4000/api/auth/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url: 'http://localhost:4000/api/users/current',
+            method: 'get',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true,
+        tokenType: 'Bearer'
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/?logout',
+      user: '/?user',
+      callback: '/?callback'
     }
   },
   /*
