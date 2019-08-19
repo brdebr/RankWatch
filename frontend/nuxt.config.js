@@ -26,7 +26,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.scss','@fortawesome/fontawesome-free/css/all.css'],
+  css: [
+    '~/assets/css/main.scss',
+    '@fortawesome/fontawesome-free/css/all.css',
+    'filepond/dist/filepond.min.css',
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
