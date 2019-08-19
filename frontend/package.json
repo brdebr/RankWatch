@@ -28,8 +28,11 @@
     "vuetify-toast-snackbar": "^0.4.3"
   },
   "devDependencies": {
-    "vue-particles": "github:brdebr/vue-particles",
     "@fortawesome/fontawesome-free": "^5.10.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-brands-svg-icons": "^5.10.1",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
@@ -44,6 +47,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^8.2.1",
     "prettier": "^1.16.4",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "vue-particles": "github:brdebr/vue-particles"
   }
 }

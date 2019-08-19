@@ -33,7 +33,8 @@ export default {
   plugins: [
     '@/plugins/particles.client',
     '@/plugins/animejs.client',
-    '@/plugins/snackbar.client'
+    '@/plugins/snackbar.client',
+    '@/plugins/fontawesome'
   ],
   /*
    ** Nuxt.js dev-modules
