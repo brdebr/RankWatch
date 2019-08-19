@@ -1,10 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    :persistent="loading"
-    max-width="600px"
-    class="login-dialog"
-  >
+  <v-dialog v-model="dialog" max-width="600px" persistent class="login-dialog">
     <template #activator="{on}">
       <v-btn depressed dark color="light-green darken-3" v-on="on">
         <span class="mr-3">
@@ -24,8 +19,7 @@ export default {
   },
   data() {
     return {
-      dialog: false,
-      loading: false
+      dialog: false
     }
   }
 }

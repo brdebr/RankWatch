@@ -9,7 +9,7 @@
       </v-btn>
     </template>
 
-    <v-card class="main-card">
+    <v-card class="main-card" :loading="loading">
       <v-card-title class="justify-center pa-3 elevation-2 grey darken-2">
         <span class="headline">
           Sign up

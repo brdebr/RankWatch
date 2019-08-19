@@ -1,5 +1,5 @@
 <template>
-  <v-card class="login-dialog blue-grey darken-2">
+  <v-card :loading="loading" class="login-dialog blue-grey darken-2">
     <v-card-title class="blue-grey darken-3 elevation-2 justify-center ">
       <span class="headline">
         Login
@@ -57,6 +57,7 @@ export default {
   data() {
     return {
       hidePassword: true,
+      loading: false,
       form: {
         email: '',
         password: ''
@@ -75,6 +76,7 @@ export default {
     },
     async login() {
       try {
+        this.loading = true
         await this.$auth
           .loginWith('local', {
             data: {
@@ -98,6 +100,7 @@ export default {
       } catch (e) {
         this.$toast.error('Username or Password wrong', { icon: 'error' })
       }
+      this.loading = false
     }
   }
 }
