@@ -32,27 +32,8 @@ MapController.createMap = async (req, res) => {
 
     try {
         const createdMap = await newMap.save();
-        const file = await File.findById(createdMap.imgId);
-        // TODO get route of base and relative to it
-        let newPath = path.normalize(__dirname+'../../../uploads/maps/'+file.originalname);
-        
-        fs.rename(file.path, newPath, async (err) => {
-            if(err){
-                console.log(err);
-            } 
-            else{
-                file.path = newPath
-                file.confirmed = true;
-                let resultFile = await file.save();
-                createdMap.imageFilename = resultFile.originalname;
-                let resultMap = await createdMap.save();
-                console.log({
-                    message: 'Successfully moved',
-                    resultFile,
-                    resultMap
-                });
-            } 
-        })
+
+        moveImgFromTemp(createdMap);
 
         res.json({
             message:'Map created successfully :D !',
@@ -99,6 +80,9 @@ MapController.editMap = async (req, res) => {
         type: req.body.type
     };
     try {
+        if(req.body.imgId && req.body.imageFilename){
+            await moveImgFromTemp(req.body);
+        }
         const updtMap = await Map.findByIdAndUpdate(
             id,
             {
@@ -184,6 +168,44 @@ MapController.getUploadImg = async (req, res) => {
             message:'Something didn\'t work :/',
             error
         });
+    }
+}
+
+async function moveImgFromTemp(createdMap) {
+    try {
+        if(typeof createdMap.save !== 'function'){
+            const aux = {...createdMap}
+            createdMap = await Map.findById(createdMap._id)
+            createdMap.imgId = aux.imgId
+            createdMap.imageFilename = aux.imageFilename
+        }
+    
+        const file = await File.findById(createdMap.imgId);
+        console.log(createdMap);
+        console.log(file);
+        
+        // TODO get route of base and relative to it
+        let newPath = path.normalize(__dirname+'../../../uploads/maps/'+file.originalname);
+        
+        fs.rename(file.path, newPath, async (err) => {
+            if(err){
+                console.log(err);
+            } 
+            else{
+                file.path = newPath
+                file.confirmed = true;
+                let resultFile = await file.save();
+                createdMap.imageFilename = resultFile.originalname;
+                let resultMap = await createdMap.save();
+                console.log({
+                    message: 'Successfully moved',
+                    resultFile,
+                    resultMap
+                });
+            } 
+        })
+    } catch (err) {
+        console.log(err);
     }
 }
 
