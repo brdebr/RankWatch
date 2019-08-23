@@ -12,6 +12,27 @@
           <h1 v-else>
             {{ otherError }}
           </h1>
+          <v-alert
+            v-if="envMode === 'development'"
+            border="left"
+            colored-border
+            color="error"
+            elevation="0"
+            text
+            class="mt-4"
+          >
+            <template #prepend>
+              <v-flex shrink class="ml-2 mr-5">
+                <v-icon color="error">
+                  mdi mdi-alert
+                </v-icon>
+              </v-flex>
+            </template>
+            <div class="title">Code: {{ error.statusCode }}</div>
+            <div class="mt-2 body-1">
+              {{ error.message }}
+            </div>
+          </v-alert>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -25,6 +46,7 @@
 </template>
 
 <script>
+const envMode = process.env.NODE_ENV
 export default {
   props: {
     error: {
@@ -42,7 +64,8 @@ export default {
   data() {
     return {
       pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      otherError: 'An error occurred',
+      envMode
     }
   }
 }
