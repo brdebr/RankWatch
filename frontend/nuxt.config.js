@@ -39,6 +39,7 @@ export default {
     '@/plugins/particles.client',
     '@/plugins/animejs.client',
     '@/plugins/snackbar.client',
+    '@/plugins/moment',
     '@/plugins/fontawesome'
   ],
   /*
