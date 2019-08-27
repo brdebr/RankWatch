@@ -40,6 +40,7 @@ export default {
     '@/plugins/animejs.client',
     '@/plugins/snackbar.client',
     '@/plugins/moment',
+    '@/plugins/rx-js.client.js',
     '@/plugins/fontawesome'
   ],
   /*
