@@ -1,9 +1,13 @@
 <template>
-  <v-app-bar class="blue-grey darken-4 bottom-bd" clipped-left app flat>
+  <v-app-bar
+    class="blue-grey darken-4 bottom-bd the-toolbar"
+    clipped-left
+    app
+    flat
+  >
     <v-app-bar-nav-icon
       class="orange--text text--accent-3 ml-1"
       outlined
-      small
       @click="$store.commit('general/toggleDrawer')"
     />
     <v-toolbar-title>
@@ -77,5 +81,16 @@ export default {
   font-size: 38px;
   letter-spacing: 5px;
   margin-top: 2px;
+}
+.the-toolbar {
+  .v-app-bar__nav-icon {
+    height: 38px !important;
+    width: 38px !important;
+    .v-btn__content {
+      .v-icon {
+        font-size: 22px;
+      }
+    }
+  }
 }
 </style>

@@ -7,40 +7,38 @@
         </v-card-title>
         <v-card-text class="pt-5">
           <!-- TODO: Fix this mismatch client/server, wait vuetify update -->
-          <no-ssr>
-            <v-data-table
-              :headers="headers"
-              :items="techs"
-              light
-              hide-default-footer
-            >
-              <template #item="props">
-                <tr>
-                  <td class="tech-icon-cell">
-                    <v-avatar
-                      class="ma-1 mr-3 avatar-border"
-                      size="40"
-                      color="light-blue lighten-5"
-                      style="border:2px solid #546E7A !important"
+          <v-data-table
+            :headers="headers"
+            :items="techs"
+            light
+            hide-default-footer
+          >
+            <template #item="props">
+              <tr>
+                <td class="tech-icon-cell">
+                  <v-avatar
+                    class="ma-1 mr-3 avatar-border"
+                    size="40"
+                    color="light-blue lighten-5"
+                    style="border:2px solid #546E7A !important"
+                  >
+                    <v-icon
+                      :color="props.item.color"
+                      style="font-size: 18px; margin-left:2px; margin-right:1px"
                     >
-                      <v-icon
-                        :color="props.item.color"
-                        style="font-size: 18px; margin-left:2px; margin-right:1px"
-                      >
-                        {{ props.item.icon.join(' ') }}
-                      </v-icon>
-                    </v-avatar>
-                    <span class="body-2">
-                      {{ props.item.title }}
-                    </span>
-                  </td>
-                  <td class="text-right font-italic">
-                    {{ props.item.description }}
-                  </td>
-                </tr>
-              </template>
-            </v-data-table>
-          </no-ssr>
+                      {{ props.item.icon.join(' ') }}
+                    </v-icon>
+                  </v-avatar>
+                  <span class="body-2">
+                    {{ props.item.title }}
+                  </span>
+                </td>
+                <td class="text-right font-italic">
+                  {{ props.item.description }}
+                </td>
+              </tr>
+            </template>
+          </v-data-table>
         </v-card-text>
       </v-card>
     </v-flex>

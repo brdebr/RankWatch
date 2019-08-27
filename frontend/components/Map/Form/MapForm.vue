@@ -186,8 +186,7 @@ export default {
       }
     },
     async deleteMap() {
-      const response = await this.$axios.delete('/api/map/' + this.map._id)
-      console.log(response)
+      await this.$axios.delete('/api/map/' + this.map._id)
       this.$emit('mapDeleted')
     },
     setTypeName(type) {

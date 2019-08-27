@@ -3,12 +3,12 @@
     <TheDrawer />
     <TheToolbar app-name="RankWatch" />
     <v-content class="bg-gradient">
-      <no-ssr>
+      <client-only>
         <vue-particles
           class="bg-particles"
           particles-json="/particles-conf.json"
         />
-      </no-ssr>
+      </client-only>
       <v-container class="pb-5 pt-5" fluid>
         <nuxt />
       </v-container>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <no-ssr>
+    <client-only>
       <file-pond
         ref="pond"
         name="mapImg"
@@ -14,7 +14,7 @@
         :files="mapImage"
         @processfile="onUpload"
       />
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
